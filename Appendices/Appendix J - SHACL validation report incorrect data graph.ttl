@@ -1,0 +1,9 @@
+[
+	a sh:ValidationResult ;
+	sh:resultSeverity sh:Warning ;
+	sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+	sh:sourceShape _:n8111 ;
+	sh:focusNode <http://fhnw.ch/modelingEnvironment/ModelOntology#Room_43d29b4a-c941-4a7f-b633-04e3001b4a1a> ;
+	sh:resultPath brick:hasLocation ;
+	sh:resultMessage "All rooms need to be within a unit (brick building)." ;
+] .

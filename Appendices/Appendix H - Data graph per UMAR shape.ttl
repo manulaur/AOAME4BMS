@@ -1,0 +1,199 @@
+@prefix bacnet: <http://data.ashrae.org/bacnet/2020#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix bsh: <https://brickschema.org/schema/BrickShape#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ref: <https://brickschema.org/schema/Brick/ref#> .
+@prefix s223: <http://data.ashrae.org/standard223#> .
+@prefix sdo: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix tag: <https://brickschema.org/schema/BrickTag#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bsh-empa: <https://xxx.org/schema/shape#> .
+
+# Use Case 1 - Correct data graph
+<urn:instance123> rdf:type brick:Zone .
+<urn:instance456> rdf:type brick:Setpoint .
+<urn:instance123> brick:hasPart <urn:instance456> .
+
+# Use Case 2 - Correct data graph
+<urn:instance123> rdf:type brick:Zone .
+<urn:instance456> rdf:type brick:Temperature_Sensor .
+<urn:instance123> brick:hasPart <urn:instance456> .
+
+# Use Case 3a - Correct data graph
+# Valid Energy Zone instance with a linked sensor
+:validEnergyZoneInstance a brick:Energy_Zone ;
+    brick:hasPart :validSensor .
+# Valid sensor instance
+:validSensor a brick:Sensor .
+
+# Use Case 3b - Correct data graph
+# Valid HVAC Zone instance with a linked sensor
+:validHVACZoneInstance a brick:HVAC_Zone ;
+    brick:hasPart :validSensor .
+# Valid sensor instance
+:validSensor a brick:Sensor .
+
+# Use Case 4a - Correct data graph
+# Valid Energy Zone instance with a linked Building Electrical Meter
+:validEnergyZoneInstance a brick:Energy_Zone ;
+    brick:hasPart :validSensor .
+# Valid Building Electrical Meter instance
+:validSensor a brick:Building_Electrical_Meter .
+
+# Use Case 4b - Correct data graph
+# Valid HVAC Zone instance with a linked Building Water Meter
+:validHVACZoneInstance a brick:HVAC_Zone ;
+    brick:hasPart :validSensor .
+# Valid Building Water Meter instance
+:validSensor a brick:Building_Water_Meter .
+
+# Use Case 5 - Correct data graph
+# Valid Eqipment instance with a linked Room and not outside
+:validEquipmentInstance a brick:Equipment ;
+    brick:isPartOf :Room123 .
+# Valid Room instance which is not a Brick outside
+:Room123 a brick:Room .
+
+# Use Case 6 - Correct data graph
+# Valid Point with Timeseries Reference
+:validPoint a brick:Point ;
+    ref:timeseriesReference :validTimeseries .
+# Valid Timeseries
+:validTimeseries a brick:Timeseries .
+
+# Use Case 7 - Correct data graph
+# Valid Zone with Building Link
+:validZone a brick:Zone ;
+    brick:hasLocation :validBuilding .
+# Valid Building
+:validBuilding a brick:Building .
+
+# Use Case 8 - Correct data graph
+# Valid Room with Building Link
+:validRoom a brick:Room ;
+    brick:hasLocation :validBuilding .
+# Valid Building
+:validBuilding a brick:Building .
+
+# Use Case 9 - Correct data graph
+# Valid Building Meter with Building Link
+:validBuildingMeter a brick:Building_Meter ;
+    brick:hasLocation :validBuilding .
+# Valid Building
+:validBuilding a brick:Building .
+
+# Use Case 10 - Correct data graph
+# Valid Zone with Space Link
+:validZone a brick:Zone ;
+    brick:hasLocation :validSpace .
+# Valid Space
+:validSpace a brick:Space .
+
+# Use Case 11 - Correct data graph
+# Valid Meter with Sensor Link
+:validMeter a brick:Meter ;
+    brick:hasPart :validSensor .
+# Valid Sensor
+:validSensor a brick:Sensor .
+
+# Use Case 12 - Correct data graph
+# Valid Setpoint with Sensor Link
+:validSetpoint a brick:Setpoint ;
+    brick:hasPoint :validSensor .
+# Valid Sensor
+:validSensor a brick:Sensor .
+
+# Use Case 13a - Correct data graph
+# Valid instance of brick:Pump_Command linked to a brick:Pump
+:validPumpCommandInstance a brick:Pump_Command ;
+	brick:isPointOf :validPumpInstance .
+# Valid instance of brick:Pump
+:validPumpInstance a brick:Pump .
+
+# Use Case 13b - Correct data graph
+# Valid instance of brick:Boiler_Command linked to a brick:Boiler
+:validBoilerCommandInstance a brick:Boiler_Command ;
+	brick:isPointOf :validBoilerInstance .
+# Valid instance of brick:Boiler
+:validBoilerInstance a brick:Boiler .
+
+# Use Case 13c - Correct data graph
+# Valid instance of brick:Valve_Command linked to a brick:Valve
+:validValveCommandInstance a brick:Valve_Command ;
+	brick:isPointOf :validValveInstance .
+# Valid instance of brick:Valve
+:validValveInstance a brick:Valve .
+
+# Use Case 14 - Correct data graph
+# Valid instance of brick:Sensor linked to a unit
+:validSensorInstance a brick:Sensor ;
+	brick:hasUnit unit:DegreeCelsius .
+
+# Use Case 15 - Correct data graph
+# Valid instance of brick:Setpoint linked to a unit
+:validSetpointInstance a brick:Setpoint ;
+	brick:hasUnit unit:DegreeCelsius .
+
+# Use Case 16 - Correct data graph
+<urn:instance789> rdf:type brick:Year_Built .
+<urn:instance789> brick:Value "2022"^^xsd:nonNegativeInteger .
+
+# Use Case 17 - Correct data graph
+:building1 rdf:type brick:Building .
+:area1 rdf:type brick:Area .
+:building1 brick:Area :area1 .
+
+# Use Case 18 - Correct data graph
+# Valid instance of brick:buildingPrimaryFunction
+:buildingInstance a brick:buildingPrimaryFunction ;
+    brick:value "Office"^^xsd:string .
+
+# Use Case 19a - Correct data graph
+# Valid instance of Temperature
+:temperatureInstance a brick:Temperature ;
+    brick:hasUnit unit:DEG_C ;  # Assume unit is degrees Celsius
+    brick:value 25.5 .  # Assume a numeric value
+
+# Use Case 19b - Correct data graph
+# Valid instance of Electric_Power_Sensor
+:powerSensorInstance a brick:Electric_Power_Sensor ;
+    brick:hasUnit unit:KiloW ;  # Assume unit is Kilowatts
+    brick:Value 500.0 .  # Assume a numeric value
+
+# Use Case 19c - Correct data graph
+:validBuilding a brick:Building ;
+    brick:hasArea [
+        brick:Value "200"^^xsd:decimal ;
+        brick:hasUnit unit:M2
+    ] .
+
+# Use Case 20a - Correct data graph
+# Valid instance of Temperature
+:temperatureInstance a brick:Temperature ;
+    brick:hasUnit unit:DEG_C ;  # Assume unit is degrees Celsius
+    brick:value 25.5 .  # Assume a numeric value
+
+# Use Case 20b - Correct data graph
+# Valid instance of Electric_Power_Sensor
+:powerSensorInstance a brick:Electric_Power_Sensor ;
+    brick:hasUnit unit:KiloW ;  # Assume unit is Kilowatts
+    brick:Value 500.0 .  # Assume a numeric value
+
+# Use Case 20c - Correct data graph
+:validBuilding a brick:Building ;
+    brick:hasArea [
+        brick:Value "200"^^xsd:decimal ;
+        brick:hasUnit unit:M2
+    ] .
+
+

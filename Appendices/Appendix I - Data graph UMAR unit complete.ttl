@@ -1,0 +1,812 @@
+@prefix qudt:  <http://qudt.org/schema/qudt/> .
+@prefix media-types: <http://www.iana.org/assignments/media-types#> .
+@prefix lo:    <http://fhnw.ch/modelingEnvironment/LanguageOntology#> .
+@prefix mod:   <http://fhnw.ch/modelingEnvironment/ModelOntology#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix dkmm:  <http://fhnw.ch/modelingEnvironment/dkmm#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix pid:   <http://fhnw.ch/pipeinstrumentdiagram#> .
+@prefix do:    <http://fhnw.ch/modelingEnvironment/DomainOntology#> .
+@prefix ref:   <https://brickschema.org/schema/Brick/ref#> .
+@prefix s223:  <http://data.ashrae.org/standard223#> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix rdfsplus: <http://topbraid.org/spin/rdfsplus#> .
+@prefix bacnet: <http://data.ashrae.org/bacnet/2020#> .
+@prefix dcterms: <http://purl.org/dcterms#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix tag:   <https://brickschema.org/schema/BrickTag#> .
+@prefix foaf:  <http://xmlns.com/foaf/spec#> .
+@prefix sosa:  <http://www.w3.org/ns/sosa/> .
+@prefix cc:    <http://creativecommons.org/ns#> .
+@prefix DomainOntology: <http://fhnw.ch/modelingEnvironment/DomainOntology#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix unit:  <http://qudt.org/vocab/unit/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix bsh:   <https://brickschema.org/schema/BrickShape#> .
+@prefix elements: <http://purl.org/dc/elements/1.1#> .
+@prefix spin:  <http://spinrdf.org/spin#> .
+@prefix dcmi-type-vocabulary: <http://dublincore.org/documents/2000/07/11/dcmi-type-vocabulary#> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix sdo:   <http://schema.org/> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix po:    <http://fhnw.ch/modelingEnvironment/PaletteOntology#> .
+
+mod:Pipe_9d3317ee-3824-465d-b2a3-50ac4fe70e77
+        a       mod:ConceptualElement , pid:Pipe ;
+        lo:modelingRelationHasSourceModelingElement
+                mod:Valve_9e0fbbe2-ead4-40d3-ae31-a6cf4018b31f ;
+        lo:modelingRelationHasTargetModelingElement
+                mod:Valve_5b50e5f0-e40d-47d8-87af-6f6b3d801315 .
+
+mod:PidPipe_Shape_b9d979fa-eb0a-ce1e-3756-93df59455709
+        a                   mod:Shape ;
+        mod:shapeHasHeight  50 ;
+        mod:shapeHasWidth   100 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidPipe ;
+        mod:shapePositionsOnCoordinateX
+                1399 ;
+        mod:shapePositionsOnCoordinateY
+                136 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Pipe_e71dc340-c8a9-43dc-b71e-4a8b889229a6 .
+
+mod:PidHeatTransferUnit_Shape_61e679cf-84c9-9e2c-8e24-fa2673efce7a
+        a                   mod:Shape ;
+        rdfs:label          "65NT_U20N1_E260" ;
+        mod:shapeHasHeight  70 ;
+        mod:shapeHasWidth   70 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidHeatTransferUnit ;
+        mod:shapePositionsOnCoordinateX
+                511 ;
+        mod:shapePositionsOnCoordinateY
+                403 ;
+        mod:shapeVisualisesConceptualElement
+                mod:HeatTransferUnit_f00d7faf-2ebf-4bbd-bb6f-58b3aadc5697 .
+
+mod:Pump_3988cb27-b158-4001-82dc-281e2bbf7ed7
+        a                         mod:ConceptualElement , pid:Pump , brick:Water_Pump;
+        lo:isMappedWithBrickPump  brick:Water_Pump .
+
+mod:shapePositionsOnCoordinateY
+        a            owl:DatatypeProperty ;
+        rdfs:domain  mod:Shape ;
+        rdfs:range   xsd:integer .
+
+mod:PidPipe_Shape_ceb34062-d7aa-6107-a6ed-507107ab4c61
+        a                   mod:Shape ;
+        mod:shapeHasHeight  50 ;
+        mod:shapeHasWidth   100 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidPipe ;
+        mod:shapePositionsOnCoordinateX
+                1144 ;
+        mod:shapePositionsOnCoordinateY
+                334 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Pipe_8f9aefe6-620a-4bf7-b554-e4c48a87b5db .
+
+mod:PidPipe_Shape_d1d19ddc-a631-39c6-5db7-a07c35c34c9c
+        a                   mod:Shape ;
+        mod:shapeHasHeight  50 ;
+        mod:shapeHasWidth   100 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidPipe ;
+        mod:shapePositionsOnCoordinateX
+                566 ;
+        mod:shapePositionsOnCoordinateY
+                30 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Pipe_9d3317ee-3824-465d-b2a3-50ac4fe70e77 .
+
+mod:shapePositionsOnCoordinateX
+        a            owl:DatatypeProperty ;
+        rdfs:domain  mod:Shape ;
+        rdfs:range   xsd:integer .
+
+mod:ConceptualElement
+        a                owl:Class ;
+        rdfs:label       "Model Elements" ;
+        rdfs:subClassOf  owl:Thing .
+
+mod:PidSystem_Shape_aae2e086-53dd-68d0-545c-efc03d192dfa
+        a                   mod:Shape ;
+        rdfs:label          "NTE-Net" ;
+        mod:shapeHasHeight  747 ;
+        mod:shapeHasWidth   376 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidSystem ;
+        mod:shapePositionsOnCoordinateX
+                350 ;
+        mod:shapePositionsOnCoordinateY
+                297 ;
+        mod:shapeVisualisesConceptualElement
+                mod:System_fef91303-4b8d-46a8-8ff7-920230a70538 .
+
+mod:PidPipe_Shape_9676369e-2702-df9c-a70c-191bd10f553a
+        a                   mod:Shape ;
+        mod:shapeHasHeight  50 ;
+        mod:shapeHasWidth   100 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidPipe ;
+        mod:shapePositionsOnCoordinateX
+                575 ;
+        mod:shapePositionsOnCoordinateY
+                364 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Pipe_034faec4-fbf5-40bd-83e6-c0a789a7e85e .
+
+mod:PidSystem_Shape_f6a636b2-be76-cc2b-f726-ea6d9ed7c9da
+        a                   mod:Shape ;
+        rdfs:label          "MTE-Net" ;
+        mod:shapeHasHeight  743 ;
+        mod:shapeHasWidth   729 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidSystem ;
+        mod:shapePositionsOnCoordinateX
+                1107 ;
+        mod:shapePositionsOnCoordinateY
+                298 ;
+        mod:shapeVisualisesConceptualElement
+                mod:System_18f06b8d-6064-44aa-b993-86cf6de7524c .
+
+mod:Pipe_e71dc340-c8a9-43dc-b71e-4a8b889229a6
+        a       mod:ConceptualElement , pid:Pipe ;
+        lo:modelingRelationHasSourceModelingElement
+                mod:Valve_a78a9cd2-e039-44b6-b5ae-083cb8946335 ;
+        lo:modelingRelationHasTargetModelingElement
+                mod:RadiantPanel_dcf9cc1e-29da-4712-a3d5-584deaba17b7 .
+
+mod:shapeRepresentsModel
+        a            owl:ObjectProperty ;
+        rdfs:domain  mod:Shape ;
+        rdfs:range   mod:Model .
+
+mod:Model_1ef93fe4-8881-4d33-8b1b-45a04383468b
+        a                  mod:Model ;
+        rdfs:label         "UMAR_Final" ;
+        mod:modelHasShape  mod:PidPipe_Shape_b9d979fa-eb0a-ce1e-3756-93df59455709 , mod:PidHeatTransferUnit_Shape_61e679cf-84c9-9e2c-8e24-fa2673efce7a , mod:PidPipe_Shape_ceb34062-d7aa-6107-a6ed-507107ab4c61 , mod:PidPipe_Shape_d1d19ddc-a631-39c6-5db7-a07c35c34c9c , mod:PidSystem_Shape_aae2e086-53dd-68d0-545c-efc03d192dfa , mod:PidPipe_Shape_9676369e-2702-df9c-a70c-191bd10f553a , mod:PidSystem_Shape_f6a636b2-be76-cc2b-f726-ea6d9ed7c9da , mod:PidPipe_Shape_818a05c7-69cd-229e-b5b2-bc4898fa9273 , mod:PidRadiantPanel_Shape_a6631f9b-1c39-fab5-9d15-0c8262cdfc93 , mod:PidValve_Shape_20b35a50-9d98-6f87-af1b-0d71a8338532 , mod:PidPipe_Shape_38239ec5-8b1c-da36-d59a-04e1a6eab95f , mod:PidPipe_Shape_c5a4d5eb-4eb2-da28-39e5-6ec562498a41 , mod:PidPipe_Shape_a2f7159d-fd9f-5b51-f3c0-e2ce90ec6b8e , mod:PidPipe_Shape_09562839-a3c0-5ddf-7ff8-6cc7cc8a110a , mod:PidValve_Shape_20cce006-6930-3e16-5a18-f9a816888204 , mod:PidPipe_Shape_661e8402-9b58-0d0b-951e-ec6a780634d5 , mod:PidRoom_Shape_bcd73d3c-836b-16c4-dfcf-e5e0230b2d60 , mod:PidPipe_Shape_2fc35d07-3638-a2dd-abb1-957c59b635af , mod:PidPipe_Shape_90b5831f-5192-3eb9-0790-ce7101d6810d , mod:PidPipe_Shape_f62e21f6-5a0f-a560-866a-87856968197f , mod:PidPipe_Shape_93d38aa4-0835-ed34-afb0-fe2a93881af3 , mod:PidPump_Shape_4cd18092-c03f-9460-17b5-c6044ce31c59 , mod:PidPipe_Shape_bae9d45c-d4a3-24cc-4bbd-1f06617cb07c , mod:PidPump_Shape_86558c64-3bc1-cd5b-8c6c-a89b4b909a1a , mod:PidRadiantPanel_Shape_70cc4c99-e71f-c675-8bb4-c4d8e2614f5d , mod:PidValve_Shape_89f1893d-0bec-588c-8b4d-7c5e4dc35178 , mod:PidHeatTransferUnit_Shape_f0309213-ee8f-b155-b882-2f17c5f8f608 , mod:PidValve_Shape_e4989d06-dfb5-a7f8-87df-27aba16e0bb3 , mod:PidPump_Shape_eef35da9-7731-74a5-7a5f-0f4ffa4e5ddd , mod:PidValve_Shape_4e675976-ad34-117d-a9fd-6b9b20a3ac7f , mod:PidRadiantPanel_Shape_7723bc9b-c1d3-d15b-016a-10f447c88b1a , mod:PidPipe_Shape_d6611af9-5056-c70e-602c-86170cb63055 , mod:PidPipe_Shape_cf11ed21-8894-d761-7b9d-5bb032528320 , mod:PidValve_Shape_c44ed1e9-4733-f877-16e7-5559b9aa97d5 , mod:PidPipe_Shape_e8f6be2d-b5e7-e32a-0b7a-c528a33a388a , mod:PidPipe_Shape_cbd27307-4003-036c-d5b1-777bbd2f82c3 , mod:PidValve_Shape_340ca540-8614-b248-3082-b05ca4d70f18 , mod:PidPipe_Shape_eebd0bf4-b05a-ea56-9eba-3d07c7e557d6 .
+
+mod:Valve_9e0fbbe2-ead4-40d3-ae31-a6cf4018b31f
+        a                          mod:ConceptualElement , pid:Valve , brick:HVAC_Valve ;
+        lo:isMappedWithBrickValve  brick:HVAC_Valve .
+
+mod:propertyIsShownInModel
+        a            owl:DatatypeProperty ;
+        rdfs:domain  rdf:Property ;
+        rdfs:range   xsd:boolean .
+
+mod:PidPipe_Shape_818a05c7-69cd-229e-b5b2-bc4898fa9273
+        a                   mod:Shape ;
+        mod:shapeHasHeight  50 ;
+        mod:shapeHasWidth   100 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidPipe ;
+        mod:shapePositionsOnCoordinateX
+                1252 ;
+        mod:shapePositionsOnCoordinateY
+                133 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Pipe_eade89fc-d5f8-4e40-b1e4-4f92cb8f53bf .
+
+mod:PidRadiantPanel_Shape_a6631f9b-1c39-fab5-9d15-0c8262cdfc93
+        a                   mod:Shape ;
+        rdfs:label          "65NT_U20R1_E561" ;
+        mod:shapeHasHeight  70 ;
+        mod:shapeHasWidth   70 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidRadiantPanel ;
+        mod:shapePositionsOnCoordinateX
+                1323 ;
+        mod:shapePositionsOnCoordinateY
+                383 ;
+        mod:shapeVisualisesConceptualElement
+                mod:RadiantPanel_3bd7de3d-c4e4-48d3-a688-edaa57eaac9d .
+
+mod:PidValve_Shape_20b35a50-9d98-6f87-af1b-0d71a8338532
+        a                   mod:Shape ;
+        rdfs:label          "65NT_U20N1_Y700" ;
+        mod:shapeHasHeight  70 ;
+        mod:shapeHasWidth   70 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidValve ;
+        mod:shapePositionsOnCoordinateX
+                511 ;
+        mod:shapePositionsOnCoordinateY
+                -26 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Valve_9e0fbbe2-ead4-40d3-ae31-a6cf4018b31f .
+
+mod:Valve_4b87792c-7c55-4a70-8091-625f2a168888
+        a                          mod:ConceptualElement , pid:Valve , brick:HVAC_Valve ;
+        lo:isMappedWithBrickValve  brick:HVAC_Valve .
+
+mod:PidPipe_Shape_38239ec5-8b1c-da36-d59a-04e1a6eab95f
+        a                   mod:Shape ;
+        mod:shapeHasHeight  50 ;
+        mod:shapeHasWidth   100 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidPipe ;
+        mod:shapePositionsOnCoordinateX
+                960 ;
+        mod:shapePositionsOnCoordinateY
+                294 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Pipe_5b97141b-1149-45c2-b435-c63b80fb0390 .
+
+mod:RadiantPanel_dcf9cc1e-29da-4712-a3d5-584deaba17b7
+        a       pid:RadiantPanel , mod:ConceptualElement , brick:RC_Panel ;
+        lo:IsMappedwithBrickRadiantPanel
+                brick:RC_Panel .
+
+mod:Pipe_034faec4-fbf5-40bd-83e6-c0a789a7e85e
+        a       mod:ConceptualElement , pid:Pipe ;
+        lo:modelingRelationHasSourceModelingElement
+                mod:RadiantPanel_cd494dec-c4e5-49a0-91e8-7f2348499272 ;
+        lo:modelingRelationHasTargetModelingElement
+                mod:HeatTransferUnit_f00d7faf-2ebf-4bbd-bb6f-58b3aadc5697 .
+
+mod:shapeHasWidth  a  owl:DatatypeProperty ;
+        rdfs:domain  mod:Shape ;
+        rdfs:range   xsd:integer .
+
+mod:shapeVisualisesConceptualElement
+        a            owl:ObjectProperty ;
+        rdfs:domain  mod:Shape ;
+        rdfs:range   mod:ConceptualElement .
+
+mod:PidPipe_Shape_c5a4d5eb-4eb2-da28-39e5-6ec562498a41
+        a                   mod:Shape ;
+        mod:shapeHasHeight  50 ;
+        mod:shapeHasWidth   100 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidPipe ;
+        mod:shapePositionsOnCoordinateX
+                438 ;
+        mod:shapePositionsOnCoordinateY
+                152 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Pipe_4c7ea6a6-557a-427c-84b3-61f8ae9e8182 .
+
+mod:Pipe_52498be3-6ea9-4e54-b51d-cc985023db8f
+        a       mod:ConceptualElement , pid:Pipe ;
+        lo:modelingRelationHasSourceModelingElement
+                mod:Valve_9e0fbbe2-ead4-40d3-ae31-a6cf4018b31f ;
+        lo:modelingRelationHasTargetModelingElement
+                mod:Valve_a78a9cd2-e039-44b6-b5ae-083cb8946335 .
+
+mod:Valve_e7b71a60-d1a2-4059-b715-ec27b5c7e6b5
+        a                          mod:ConceptualElement , pid:Valve , brick:HVAC_Valve ;
+        lo:isMappedWithBrickValve  brick:HVAC_Valve .
+
+mod:PidPipe_Shape_a2f7159d-fd9f-5b51-f3c0-e2ce90ec6b8e
+        a                   mod:Shape ;
+        mod:shapeHasHeight  50 ;
+        mod:shapeHasWidth   100 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidPipe ;
+        mod:shapePositionsOnCoordinateX
+                566 ;
+        mod:shapePositionsOnCoordinateY
+                29 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Pipe_0926a436-2b13-4a92-b6a1-9606991ec724 .
+
+mod:Pipe_3e0875ac-a751-47bd-ac1b-d641db634282
+        a       mod:ConceptualElement , pid:Pipe ;
+        lo:modelingRelationHasSourceModelingElement
+                mod:RadiantPanel_3bd7de3d-c4e4-48d3-a688-edaa57eaac9d ;
+        lo:modelingRelationHasTargetModelingElement
+                mod:HeatTransferUnit_f00d7faf-2ebf-4bbd-bb6f-58b3aadc5697 .
+
+mod:PidPipe_Shape_09562839-a3c0-5ddf-7ff8-6cc7cc8a110a
+        a                   mod:Shape ;
+        mod:shapeHasHeight  50 ;
+        mod:shapeHasWidth   100 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidPipe ;
+        mod:shapePositionsOnCoordinateX
+                1167 ;
+        mod:shapePositionsOnCoordinateY
+                316 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Pipe_cbbe4f98-429d-4865-ad4c-4002a4367377 .
+
+mod:Pipe_914958f6-cd16-463a-91f8-266f47157259
+        a       mod:ConceptualElement , pid:Pipe ;
+        lo:modelingRelationHasSourceModelingElement
+                mod:Valve_b5a3df29-0c2a-4517-a268-d58f719224de ;
+        lo:modelingRelationHasTargetModelingElement
+                mod:HeatTransferUnit_e2ef8238-76d7-45e7-8209-35f3547b0747 .
+
+mod:Pipe_2a386c5b-cb1a-4351-baa9-4ba955973c81
+        a       mod:ConceptualElement , pid:Pipe ;
+        lo:modelingRelationHasSourceModelingElement
+                mod:Pump_648152ad-363d-4d6a-aa95-b6aac8d5c213 ;
+        lo:modelingRelationHasTargetModelingElement
+                mod:Valve_9e0fbbe2-ead4-40d3-ae31-a6cf4018b31f .
+
+mod:Pipe_7c1a07b1-65a5-49b4-a536-a4c1eb283546
+        a       mod:ConceptualElement , pid:Pipe ;
+        lo:modelingRelationHasSourceModelingElement
+                mod:RadiantPanel_dcf9cc1e-29da-4712-a3d5-584deaba17b7 ;
+        lo:modelingRelationHasTargetModelingElement
+                mod:HeatTransferUnit_f00d7faf-2ebf-4bbd-bb6f-58b3aadc5697 .
+
+mod:System_fef91303-4b8d-46a8-8ff7-920230a70538
+        a                         mod:ConceptualElement , pid:System , brick:Chilled_Water_Loop ;
+        lo:isMappedWithBrickLoop  brick:Chilled_Water_Loop ;
+        lo:modelingContainerContainsModelingLanguageConstruct
+                mod:Pump_3988cb27-b158-4001-82dc-281e2bbf7ed7 , mod:Valve_9e0fbbe2-ead4-40d3-ae31-a6cf4018b31f , mod:Valve_c0f3a93c-9970-46c7-aaa5-dc32c81b74fc , mod:HeatTransferUnit_f00d7faf-2ebf-4bbd-bb6f-58b3aadc5697 .
+
+mod:HeatTransferUnit_e2ef8238-76d7-45e7-8209-35f3547b0747
+        a       mod:ConceptualElement , pid:HeatTransferUnit , brick:Heat_Exchanger ;
+        lo:IsMappedwithBrickHeatExchanger
+                brick:Heat_Exchanger .
+
+mod:PidValve_Shape_20cce006-6930-3e16-5a18-f9a816888204
+        a                   mod:Shape ;
+        rdfs:label          "65NT_NTM31_Y760" ;
+        mod:shapeHasHeight  70 ;
+        mod:shapeHasWidth   70 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidValve ;
+        mod:shapePositionsOnCoordinateX
+                497 ;
+        mod:shapePositionsOnCoordinateY
+                520 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Valve_c0f3a93c-9970-46c7-aaa5-dc32c81b74fc .
+
+mod:PidPipe_Shape_661e8402-9b58-0d0b-951e-ec6a780634d5
+        a                   mod:Shape ;
+        mod:shapeHasHeight  50 ;
+        mod:shapeHasWidth   100 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidPipe ;
+        mod:shapePositionsOnCoordinateX
+                1021 ;
+        mod:shapePositionsOnCoordinateY
+                349 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Pipe_914958f6-cd16-463a-91f8-266f47157259 .
+
+mod:modelHasShape  a  owl:ObjectProperty ;
+        rdfs:domain  mod:Model ;
+        rdfs:range   mod:Shape .
+
+mod:Valve_c0f3a93c-9970-46c7-aaa5-dc32c81b74fc
+        a                          mod:ConceptualElement , pid:Valve , brick:HVAC_Valve ;
+        lo:isMappedWithBrickValve  brick:HVAC_Valve .
+
+mod:PidRoom_Shape_bcd73d3c-836b-16c4-dfcf-e5e0230b2d60
+        a                   mod:Shape ;
+        rdfs:label          "Room 273" ;
+        mod:shapeHasHeight  655 ;
+        mod:shapeHasWidth   283 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidRoom ;
+        mod:shapePositionsOnCoordinateX
+                1299 ;
+        mod:shapePositionsOnCoordinateY
+                302 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Room_43d29b4a-c941-4a7f-b633-04e3001b4a1a .
+
+mod:Valve_b5a3df29-0c2a-4517-a268-d58f719224de
+        a                          mod:ConceptualElement , pid:Valve , brick:HVAC_Valve ;
+        lo:isMappedWithBrickValve  brick:HVAC_Valve .
+
+mod:Pipe_8f9aefe6-620a-4bf7-b554-e4c48a87b5db
+        a       mod:ConceptualElement , pid:Pipe ;
+        lo:modelingRelationHasSourceModelingElement
+                mod:RadiantPanel_3bd7de3d-c4e4-48d3-a688-edaa57eaac9d ;
+        lo:modelingRelationHasTargetModelingElement
+                mod:HeatTransferUnit_e2ef8238-76d7-45e7-8209-35f3547b0747 .
+
+mod:PidPipe_Shape_2fc35d07-3638-a2dd-abb1-957c59b635af
+        a                   mod:Shape ;
+        mod:shapeHasHeight  50 ;
+        mod:shapeHasWidth   100 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidPipe ;
+        mod:shapePositionsOnCoordinateX
+                566 ;
+        mod:shapePositionsOnCoordinateY
+                30 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Pipe_52498be3-6ea9-4e54-b51d-cc985023db8f .
+
+mod:Pipe_cbbe4f98-429d-4865-ad4c-4002a4367377
+        a       mod:ConceptualElement , pid:Pipe ;
+        lo:modelingRelationHasSourceModelingElement
+                mod:RadiantPanel_dcf9cc1e-29da-4712-a3d5-584deaba17b7 ;
+        lo:modelingRelationHasTargetModelingElement
+                mod:HeatTransferUnit_e2ef8238-76d7-45e7-8209-35f3547b0747 .
+
+mod:Pipe_5341df7a-0dbf-4de8-ad1a-a1fc336ab310
+        a       mod:ConceptualElement , pid:Pipe ;
+        lo:modelingRelationHasSourceModelingElement
+                mod:Valve_c0f3a93c-9970-46c7-aaa5-dc32c81b74fc ;
+        lo:modelingRelationHasTargetModelingElement
+                mod:HeatTransferUnit_f00d7faf-2ebf-4bbd-bb6f-58b3aadc5697 .
+
+mod:PidPipe_Shape_90b5831f-5192-3eb9-0790-ce7101d6810d
+        a                   mod:Shape ;
+        mod:shapeHasHeight  50 ;
+        mod:shapeHasWidth   100 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidPipe ;
+        mod:shapePositionsOnCoordinateX
+                575 ;
+        mod:shapePositionsOnCoordinateY
+                360 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Pipe_3e0875ac-a751-47bd-ac1b-d641db634282 .
+
+mod:Room_43d29b4a-c941-4a7f-b633-04e3001b4a1a
+        a                             mod:ConceptualElement , pid:Room , brick:Room ;
+        lo:isMappedWithBrickLocation  brick:Room ;
+        lo:modelingContainerContainsModelingLanguageConstruct
+                mod:Valve_4b87792c-7c55-4a70-8091-625f2a168888 , mod:RadiantPanel_dcf9cc1e-29da-4712-a3d5-584deaba17b7 , mod:RadiantPanel_cd494dec-c4e5-49a0-91e8-7f2348499272 , mod:Valve_a78a9cd2-e039-44b6-b5ae-083cb8946335 , mod:RadiantPanel_3bd7de3d-c4e4-48d3-a688-edaa57eaac9d , mod:Valve_5b50e5f0-e40d-47d8-87af-6f6b3d801315 .
+
+mod:PidPipe_Shape_f62e21f6-5a0f-a560-866a-87856968197f
+        a                   mod:Shape ;
+        mod:shapeHasHeight  50 ;
+        mod:shapeHasWidth   100 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidPipe ;
+        mod:shapePositionsOnCoordinateX
+                386 ;
+        mod:shapePositionsOnCoordinateY
+                240 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Pipe_ada84dd8-1274-4053-83ea-37481f26eb78 .
+
+mod:Pipe_eade89fc-d5f8-4e40-b1e4-4f92cb8f53bf
+        a       mod:ConceptualElement , pid:Pipe ;
+        lo:modelingRelationHasSourceModelingElement
+                mod:Valve_4b87792c-7c55-4a70-8091-625f2a168888 ;
+        lo:modelingRelationHasTargetModelingElement
+                mod:RadiantPanel_3bd7de3d-c4e4-48d3-a688-edaa57eaac9d .
+
+mod:PidPipe_Shape_93d38aa4-0835-ed34-afb0-fe2a93881af3
+        a                   mod:Shape ;
+        mod:shapeHasHeight  50 ;
+        mod:shapeHasWidth   100 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidPipe ;
+        mod:shapePositionsOnCoordinateX
+                966 ;
+        mod:shapePositionsOnCoordinateY
+                109 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Pipe_bc32daf7-90fe-4914-a091-bfc1bf0d1859 .
+
+mod:shapeHasHeight  a  owl:DatatypeProperty ;
+        rdfs:domain  mod:Shape ;
+        rdfs:range   xsd:integer .
+
+mod:shapeInstantiatesPaletteConstruct
+        a            owl:ObjectProperty ;
+        rdfs:domain  mod:Shape ;
+        rdfs:range   po:PaletteConstruct .
+
+mod:PidPump_Shape_4cd18092-c03f-9460-17b5-c6044ce31c59
+        a                   mod:Shape ;
+        rdfs:label          "65NT_U20M2_M210" ;
+        mod:shapeHasHeight  70 ;
+        mod:shapeHasWidth   70 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidPump ;
+        mod:shapePositionsOnCoordinateX
+                974 ;
+        mod:shapePositionsOnCoordinateY
+                116 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Pump_648152ad-363d-4d6a-aa95-b6aac8d5c213 .
+
+mod:Pipe_ada84dd8-1274-4053-83ea-37481f26eb78
+        a       mod:ConceptualElement , pid:Pipe ;
+        lo:modelingRelationHasSourceModelingElement
+                mod:Pump_3988cb27-b158-4001-82dc-281e2bbf7ed7 ;
+        lo:modelingRelationHasTargetModelingElement
+                mod:HeatTransferUnit_f00d7faf-2ebf-4bbd-bb6f-58b3aadc5697 .
+
+mod:PidPipe_Shape_bae9d45c-d4a3-24cc-4bbd-1f06617cb07c
+        a                   mod:Shape ;
+        mod:shapeHasHeight  50 ;
+        mod:shapeHasWidth   100 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidPipe ;
+        mod:shapePositionsOnCoordinateX
+                575 ;
+        mod:shapePositionsOnCoordinateY
+                360 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Pipe_7c1a07b1-65a5-49b4-a536-a4c1eb283546 .
+
+mod:System_18f06b8d-6064-44aa-b993-86cf6de7524c
+        a                         mod:ConceptualElement , pid:System , brick:Hot_Water_Loop ;
+        lo:isMappedWithBrickLoop  brick:Hot_Water_Loop ;
+        lo:modelingContainerContainsModelingLanguageConstruct
+                mod:Valve_4b87792c-7c55-4a70-8091-625f2a168888 , mod:RadiantPanel_dcf9cc1e-29da-4712-a3d5-584deaba17b7 , mod:Valve_e7b71a60-d1a2-4059-b715-ec27b5c7e6b5 , mod:HeatTransferUnit_e2ef8238-76d7-45e7-8209-35f3547b0747 , mod:Valve_b5a3df29-0c2a-4517-a268-d58f719224de , mod:Room_43d29b4a-c941-4a7f-b633-04e3001b4a1a , mod:RadiantPanel_cd494dec-c4e5-49a0-91e8-7f2348499272 , mod:Pump_8b9702de-ae74-487d-b31a-59944e0fb58d , mod:Valve_a78a9cd2-e039-44b6-b5ae-083cb8946335 , mod:RadiantPanel_3bd7de3d-c4e4-48d3-a688-edaa57eaac9d , mod:Pump_648152ad-363d-4d6a-aa95-b6aac8d5c213 , mod:Valve_5b50e5f0-e40d-47d8-87af-6f6b3d801315 .
+
+mod:PidPump_Shape_86558c64-3bc1-cd5b-8c6c-a89b4b909a1a
+        a                   mod:Shape ;
+        rdfs:label          "65NT_U20M1_M200" ;
+        mod:shapeHasHeight  70 ;
+        mod:shapeHasWidth   70 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidPump ;
+        mod:shapePositionsOnCoordinateX
+                974 ;
+        mod:shapePositionsOnCoordinateY
+                260 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Pump_8b9702de-ae74-487d-b31a-59944e0fb58d .
+
+mod:Pipe_5b97141b-1149-45c2-b435-c63b80fb0390
+        a       mod:ConceptualElement , pid:Pipe ;
+        lo:modelingRelationHasSourceModelingElement
+                mod:Pump_8b9702de-ae74-487d-b31a-59944e0fb58d ;
+        lo:modelingRelationHasTargetModelingElement
+                mod:HeatTransferUnit_e2ef8238-76d7-45e7-8209-35f3547b0747 .
+
+mod:Pipe_019ba43b-94d6-451c-bdc8-796c2d0ce21f
+        a       mod:ConceptualElement , pid:Pipe ;
+        lo:modelingRelationHasSourceModelingElement
+                mod:HeatTransferUnit_e2ef8238-76d7-45e7-8209-35f3547b0747 ;
+        lo:modelingRelationHasTargetModelingElement
+                mod:Valve_e7b71a60-d1a2-4059-b715-ec27b5c7e6b5 .
+
+mod:PidRadiantPanel_Shape_70cc4c99-e71f-c675-8bb4-c4d8e2614f5d
+        a                   mod:Shape ;
+        rdfs:label          "65NT_U20R1_E563" ;
+        mod:shapeHasHeight  70 ;
+        mod:shapeHasWidth   70 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidRadiantPanel ;
+        mod:shapePositionsOnCoordinateX
+                1470 ;
+        mod:shapePositionsOnCoordinateY
+                514 ;
+        mod:shapeVisualisesConceptualElement
+                mod:RadiantPanel_dcf9cc1e-29da-4712-a3d5-584deaba17b7 .
+
+mod:PidValve_Shape_89f1893d-0bec-588c-8b4d-7c5e4dc35178
+        a                   mod:Shape ;
+        rdfs:label          "65NT_U20M1_Y700" ;
+        mod:shapeHasHeight  70 ;
+        mod:shapeHasWidth   70 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidValve ;
+        mod:shapePositionsOnCoordinateX
+                1108 ;
+        mod:shapePositionsOnCoordinateY
+                120 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Valve_e7b71a60-d1a2-4059-b715-ec27b5c7e6b5 .
+
+mod:RadiantPanel_cd494dec-c4e5-49a0-91e8-7f2348499272
+        a       pid:RadiantPanel , mod:ConceptualElement , brick:RC_Panel ;
+        lo:IsMappedwithBrickRadiantPanel
+                brick:RC_Panel .
+
+mod:Shape  a             owl:Class ;
+        rdfs:label       "Shape" ;
+        rdfs:subClassOf  owl:Thing .
+
+mod:Pipe_b1d973d2-4f94-4cc7-8840-b12ba5e85844
+        a       mod:ConceptualElement , pid:Pipe ;
+        lo:modelingRelationHasSourceModelingElement
+                mod:Valve_5b50e5f0-e40d-47d8-87af-6f6b3d801315 ;
+        lo:modelingRelationHasTargetModelingElement
+                mod:RadiantPanel_cd494dec-c4e5-49a0-91e8-7f2348499272 .
+
+mod:PidValve_Shape_e4989d06-dfb5-a7f8-87df-27aba16e0bb3
+        a                   mod:Shape ;
+        rdfs:label          "65NT_U20R1_Y103" ;
+        mod:shapeHasHeight  70 ;
+        mod:shapeHasWidth   70 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidValve ;
+        mod:shapePositionsOnCoordinateX
+                1465 ;
+        mod:shapePositionsOnCoordinateY
+                -23 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Valve_a78a9cd2-e039-44b6-b5ae-083cb8946335 .
+
+mod:PidPump_Shape_eef35da9-7731-74a5-7a5f-0f4ffa4e5ddd
+        a                   mod:Shape ;
+        rdfs:label          "65NT_U20N1_M200" ;
+        mod:shapeHasHeight  70 ;
+        mod:shapeHasWidth   70 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidPump ;
+        mod:shapePositionsOnCoordinateX
+                395 ;
+        mod:shapePositionsOnCoordinateY
+                341 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Pump_3988cb27-b158-4001-82dc-281e2bbf7ed7 .
+
+mod:PidValve_Shape_4e675976-ad34-117d-a9fd-6b9b20a3ac7f
+        a                   mod:Shape ;
+        rdfs:label          "65NT_U20R1_Y102" ;
+        mod:shapeHasHeight  70 ;
+        mod:shapeHasWidth   70 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidValve ;
+        mod:shapePositionsOnCoordinateX
+                1393 ;
+        mod:shapePositionsOnCoordinateY
+                13 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Valve_5b50e5f0-e40d-47d8-87af-6f6b3d801315 .
+
+mod:Pipe_4c7ea6a6-557a-427c-84b3-61f8ae9e8182
+        a       mod:ConceptualElement , pid:Pipe ;
+        lo:modelingRelationHasSourceModelingElement
+                mod:HeatTransferUnit_f00d7faf-2ebf-4bbd-bb6f-58b3aadc5697 ;
+        lo:modelingRelationHasTargetModelingElement
+                mod:Valve_9e0fbbe2-ead4-40d3-ae31-a6cf4018b31f .
+
+mod:Pump_8b9702de-ae74-487d-b31a-59944e0fb58d
+        a                         mod:ConceptualElement , pid:Pump , brick:Water_Pump ;
+        lo:isMappedWithBrickPump  brick:Water_Pump .
+
+mod:PidRadiantPanel_Shape_7723bc9b-c1d3-d15b-016a-10f447c88b1a
+        a                   mod:Shape ;
+        rdfs:label          "65NT_U20R1_E562" ;
+        mod:shapeHasHeight  70 ;
+        mod:shapeHasWidth   70 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidRadiantPanel ;
+        mod:shapePositionsOnCoordinateX
+                1387 ;
+        mod:shapePositionsOnCoordinateY
+                415 ;
+        mod:shapeVisualisesConceptualElement
+                mod:RadiantPanel_cd494dec-c4e5-49a0-91e8-7f2348499272 .
+
+mod:HeatTransferUnit_f00d7faf-2ebf-4bbd-bb6f-58b3aadc5697
+        a       mod:ConceptualElement , pid:HeatTransferUnit, brick:Heat_Exchanger ;
+        lo:IsMappedwithBrickHeatExchanger
+                brick:Heat_Exchanger .
+
+mod:PidPipe_Shape_d6611af9-5056-c70e-602c-86170cb63055
+        a                   mod:Shape ;
+        mod:shapeHasHeight  50 ;
+        mod:shapeHasWidth   100 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidPipe ;
+        mod:shapePositionsOnCoordinateX
+                1167 ;
+        mod:shapePositionsOnCoordinateY
+                316 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Pipe_a9c882cd-b9cd-43c5-a14f-9de6774526a6 .
+
+mod:Pipe_0926a436-2b13-4a92-b6a1-9606991ec724
+        a       mod:ConceptualElement , pid:Pipe ;
+        lo:modelingRelationHasSourceModelingElement
+                mod:Valve_9e0fbbe2-ead4-40d3-ae31-a6cf4018b31f ;
+        lo:modelingRelationHasTargetModelingElement
+                mod:Valve_4b87792c-7c55-4a70-8091-625f2a168888 .
+
+mod:PidPipe_Shape_cf11ed21-8894-d761-7b9d-5bb032528320
+        a                   mod:Shape ;
+        mod:shapeHasHeight  50 ;
+        mod:shapeHasWidth   100 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidPipe ;
+        mod:shapePositionsOnCoordinateX
+                1014 ;
+        mod:shapePositionsOnCoordinateY
+                184 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Pipe_019ba43b-94d6-451c-bdc8-796c2d0ce21f .
+
+mod:Valve_a78a9cd2-e039-44b6-b5ae-083cb8946335
+        a                          mod:ConceptualElement , pid:Valve, brick:HVAC_Valve ;
+        lo:isMappedWithBrickValve  brick:HVAC_Valve .
+
+mod:PidValve_Shape_c44ed1e9-4733-f877-16e7-5559b9aa97d5
+        a                   mod:Shape ;
+        rdfs:label          "65NT_MTM31_Y760" ;
+        mod:shapeHasHeight  70 ;
+        mod:shapeHasWidth   70 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidValve ;
+        mod:shapePositionsOnCoordinateX
+                1107 ;
+        mod:shapePositionsOnCoordinateY
+                365 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Valve_b5a3df29-0c2a-4517-a268-d58f719224de .
+
+mod:RadiantPanel_3bd7de3d-c4e4-48d3-a688-edaa57eaac9d
+        a       pid:RadiantPanel , mod:ConceptualElement, brick:RC_Panel ;
+        lo:IsMappedwithBrickRadiantPanel
+                brick:RC_Panel .
+
+mod:shapeHasNote  a  owl:DatatypeProperty ;
+        rdfs:domain  mod:Shape ;
+        rdfs:range   xsd:string .
+
+mod:Pump_648152ad-363d-4d6a-aa95-b6aac8d5c213
+        a                         mod:ConceptualElement , pid:Pump, brick:Water_Pump ;
+        lo:isMappedWithBrickPump  brick:Water_Pump .
+
+mod:PidPipe_Shape_e8f6be2d-b5e7-e32a-0b7a-c528a33a388a
+        a                   mod:Shape ;
+        mod:shapeHasHeight  50 ;
+        mod:shapeHasWidth   100 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidPipe ;
+        mod:shapePositionsOnCoordinateX
+                566 ;
+        mod:shapePositionsOnCoordinateY
+                84 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Pipe_2a386c5b-cb1a-4351-baa9-4ba955973c81 .
+
+mod:Model  a             owl:Class ;
+        rdfs:label       "Models" ;
+        rdfs:subClassOf  owl:Thing .
+
+mod:PidPipe_Shape_cbd27307-4003-036c-d5b1-777bbd2f82c3
+        a                   mod:Shape ;
+        mod:shapeHasHeight  50 ;
+        mod:shapeHasWidth   100 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidPipe ;
+        mod:shapePositionsOnCoordinateX
+                1325 ;
+        mod:shapePositionsOnCoordinateY
+                134 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Pipe_b1d973d2-4f94-4cc7-8840-b12ba5e85844 .
+
+mod:Valve_5b50e5f0-e40d-47d8-87af-6f6b3d801315
+        a                          mod:ConceptualElement , pid:Valve, brick:HVAC_Valve ;
+        lo:isMappedWithBrickValve  brick:HVAC_Valve .
+
+mod:Pipe_bc32daf7-90fe-4914-a091-bfc1bf0d1859
+        a       mod:ConceptualElement , pid:Pipe ;
+        lo:modelingRelationHasSourceModelingElement
+                mod:Valve_e7b71a60-d1a2-4059-b715-ec27b5c7e6b5 ;
+        lo:modelingRelationHasTargetModelingElement
+                mod:Pump_648152ad-363d-4d6a-aa95-b6aac8d5c213 .
+
+mod:PidValve_Shape_340ca540-8614-b248-3082-b05ca4d70f18
+        a                   mod:Shape ;
+        rdfs:label          "65NT_U20R1_Y101" ;
+        mod:shapeHasHeight  70 ;
+        mod:shapeHasWidth   70 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidValve ;
+        mod:shapePositionsOnCoordinateX
+                1316 ;
+        mod:shapePositionsOnCoordinateY
+                66 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Valve_4b87792c-7c55-4a70-8091-625f2a168888 .
+
+mod:PidPipe_Shape_eebd0bf4-b05a-ea56-9eba-3d07c7e557d6
+        a                   mod:Shape ;
+        mod:shapeHasHeight  50 ;
+        mod:shapeHasWidth   100 ;
+        mod:shapeInstantiatesPaletteConstruct
+                po:PidPipe ;
+        mod:shapePositionsOnCoordinateX
+                439 ;
+        mod:shapePositionsOnCoordinateY
+                297 ;
+        mod:shapeVisualisesConceptualElement
+                mod:Pipe_5341df7a-0dbf-4de8-ad1a-a1fc336ab310 .

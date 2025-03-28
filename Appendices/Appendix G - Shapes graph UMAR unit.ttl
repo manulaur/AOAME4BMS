@@ -1,0 +1,412 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix ref:   <https://brickschema.org/schema/Brick/ref#> .
+@prefix bsh: <https://brickschema.org/schema/BrickShape#> .
+@prefix bsh-empa: <https://bsh-empa.org/schema/shape#> . # not defined
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix pid:   <http://fhnw.ch/pipeinstrumentdiagram#> .
+
+# Use Case 1 - Validated
+bsh-empa:ZoneSetpointLinkShape
+    a sh:NodeShape ;
+    sh:targetClass brick:Zone ;
+    sh:property [
+        sh:message "A zone must have at least one setpoint linked with 'hasPart'" ;
+        sh:severity sh:Warning ; # The shape is a NEST preference
+        sh:path brick:hasPart ;  # Constrain a property named 'hasPart'
+        sh:minCount 1 ;  # There must be at least one 'hasPart' relationship
+        sh:class brick:Setpoint ;  # Ensure the value is of type 'brick:Setpoint'
+    ] .
+
+# Use Case 2 - Validated
+bsh-empa:ZoneTempreatureSensorLinkShape
+    a owl:Class, sh:NodeShape ;
+    sh:targetClass brick:Zone ;
+    sh:property [
+        sh:message "A zone must have at least one temperature sensor linked with 'hasPart'" ;
+        sh:severity sh:Warning ;
+        sh:path brick:hasPart ;  # Constrain a property named 'hasPart'
+        sh:minCount 1 ;  # There must be at least one 'hasPart' relationship
+        sh:nodeKind sh:IRI ;  # Ensure the value is an IRI (an individual)
+        sh:class brick:Temperature_Sensor ;  # Ensure the value is of type 'brick:Temperature_Sensor'
+    ] .
+
+# Use Case 3a - Validated
+bsh-empa:EnergyZoneSensorLinkShape
+	a owl:Class, sh:NodeShape ;
+	sh:targetClass brick:Energy_Zone ;
+	sh:property [
+		sh:message "A energy zone must have at least one sensor linked with 'hasPart'" ;
+        sh:severity sh:Warning ;
+        sh:path brick:hasPart ;  # Constrain a property named 'hasPart'
+        sh:minCount 1 ;  # There must be at least one 'hasPart' relationship
+        sh:nodeKind sh:IRI ;  # Ensure the value is an IRI (an individual)
+        sh:class brick:Sensor ;  # Ensure the value is of type 'brick:Sensor'
+    ] .
+
+# Use Case 3b - Validated
+bsh-empa:HVACZoneSensorLinkShape
+    a owl:Class, sh:NodeShape ;
+    sh:targetClass brick:HVAC_Zone ;
+    sh:property [
+        sh:message "A HVAC zone must have at least one sensor linked with 'hasPart'" ;
+        sh:severity sh:Warning ;
+        sh:path brick:hasPart ;  # Constrain a property named 'hasPart'
+        sh:minCount 1 ;  # There must be at least one 'hasPart' relationship
+        sh:nodeKind sh:IRI ;  # Ensure the value is an IRI (an individual)
+        sh:class brick:Sensor ;  # Ensure the value is of type 'brick:Sensor'
+    ] .
+
+# Use Case 4a - Validated
+bsh-empa:ElectricityZoneBuildingElectricalMeterLinkShape
+    a owl:Class, sh:NodeShape ;
+    sh:targetClass brick:Energy_Zone ;
+    sh:property [
+        sh:message "A energy zone must have at least one building electrical meter linked with 'hasPart'" ;
+        sh:severity sh:Warning ;
+        sh:path brick:hasPart ;  # Constrain a property named 'hasPart'
+        sh:minCount 1 ;  # There must be at least one 'hasPart' relationship
+        sh:nodeKind sh:IRI ;  # Ensure the value is an IRI (an individual)
+        sh:class brick:Building_Electrical_Meter ;  # Ensure the value is of type 'brick:Building_Electrical_Meter'
+    ] .
+
+# Use Case 4b - Validated
+bsh-empa:HVACZoneBuildingWaterMeterLinkShape
+    a owl:Class, sh:NodeShape ;
+    sh:targetClass brick:HVAC_Zone ;
+    sh:property [
+        sh:message "A HVAC zone must have at least one building water meter linked with 'hasPart'" ;
+        sh:severity sh:Warning ; # This warning notification is showed to the user
+        sh:path brick:hasPart ;  # Constrain a property named 'hasPart'
+        sh:minCount 1 ;  # There must be at least one 'hasPart' relationship
+        sh:nodeKind sh:IRI ;  # Ensure the value is an IRI (an individual)
+        sh:class brick:Building_Water_Meter ;  # Ensure the value is of type 'brick:Building_Water_Meter'
+    ] .
+
+# Use Case 5 - Validated
+bsh-empa:EquipmentNotOutsideShape
+    a sh:NodeShape ;
+    sh:targetClass brick:Equipment ;  # Target the "Equipment" class
+    sh:not [
+        sh:property [
+            sh:message "Any equipment must not be linked to outside" ;
+            sh:path brick:isPartOf ;  # Using a property for isPartOf
+            sh:nodeKind sh:IRI ;  # Ensure that values are IRIs
+            sh:class brick:Outside ;  # Disallow links to the brick:Outside class
+            sh:maxCount 1 ;  # Maximum count must be 1 to ensure no links to brick:Outside
+        ]
+    ] .
+
+# Use Case 6 - Validated
+bsh-empa:PointTimeseriesShape
+    a owl:Class, sh:NodeShape ;
+    sh:targetClass brick:Point ;  # Targets the "brick:Point" class
+    sh:property [
+        sh:message "Each point needs to have at least one timeseries reference" ;
+        sh:severity sh:Warning ; # This warning notification is showed to the user
+        sh:path ref:timeseriesReference ;  # The property that links to timeseries references
+        sh:minCount 1 ;  # At least one timeseries reference is required
+    ] .
+
+# Use Case 7 - Validated
+bsh-empa:ZoneBuildingLinkShape
+    a owl:Class, sh:NodeShape ;
+    sh:targetClass brick:Zone ;  # Target the "brick:Zone" class
+    sh:property [
+        sh:message "All zones need to be within a  unit." ;
+        sh:severity sh:Warning ; # This warning notification is showed to the user        
+        sh:path brick:hasLocation ;  # Property for linking to location/building
+        sh:minCount 1 ;  # Exactly one link to building is required
+        sh:maxCount 1 ;  # Exactly one link to building is required
+        sh:class brick:Building ;  # Ensures the link is to "brick:Building"
+    ] .
+
+# Use Case 8 - Validated	
+bsh-empa:RoomBuildingLinkShape
+    a owl:Class, sh:NodeShape ;
+    sh:targetClass brick:Room ;  # Target the "brick:Room" class
+    sh:property [
+        sh:message "All rooms need to be within a unit (brick building)." ;
+        sh:severity sh:Warning ; # This warning notification is showed to the user        
+        sh:path brick:hasLocation ;  # Property for linking to location/building
+        sh:minCount 1 ;  # Exactly one link to building is required
+        sh:maxCount 1 ;  # Exactly one link to building is required
+        sh:class brick:Building ;  # Ensures the link is to "brick:Building"
+    ] .
+
+# Use Case 9 - Validated
+bsh-empa:BuildingMeterBuildingLinkShape
+    a owl:Class, sh:NodeShape ;
+    sh:targetClass brick:Building_Meter ;  # Targets the sub-class "brick:Building_Meter"
+    sh:property [
+        sh:message "Each building meter needs to be linked to one building." ;
+        sh:severity sh:Warning ; # This warning notification is showed to the user        
+        sh:path brick:hasLocation ; # Property for linking to location/building
+        sh:minCount 1 ;  # Exactly one link to building is required
+        sh:maxCount 1 ; # Exactly one link to building is required
+        sh:class brick:Building ;  # Ensures the link is to "brick:building"
+    ] .
+
+# Use Case 10 - Validated
+bsh-empa:ZoneSpaceLinkShape
+    a owl:Class, sh:NodeShape ;
+    sh:targetClass brick:Zone ;  # Targets the class "brick:Zone"
+    sh:property [
+        sh:message "Each zone has at least one space." ;
+        sh:severity sh:Violation ; # This violation notification is showed to the user        
+        sh:path brick:hasLocation ;  # Property for linking to location/zone
+        sh:minCount 1 ;  # At least one link to "brick:Space" is required
+        sh:class brick:Space ;  # Ensures the link is to "brick:Space"
+    ] .
+
+# Use Case 11 - Validated	
+bsh-empa:MeterSensorLinkShape
+    a owl:Class, sh:NodeShape ;
+    sh:targetClass brick:Meter ;  # Targets the class "brick:Meter"
+    sh:property [
+        sh:message "Each meter has at least one sensor linked." ;
+        sh:severity sh:Violation ; # This violation notification is showed to the user       
+        sh:path brick:hasPart ;   # Property for linking to sensor
+        sh:minCount 1 ;  # At least one link to "brick:Sensor" is required
+        sh:class brick:Sensor ;  # Ensure the link is to "brick:Sensor"
+    ] .
+		
+# Use Case 12 - Validated	
+bsh-empa:SetpointSensorLinkShape
+    a owl:Class, sh:NodeShape ;
+    sh:targetClass brick:Setpoint ;  # Targets the class "brick:Setpoint"
+    sh:property [
+        sh:message "Each setpoint has at least one sensor linked." ;
+        sh:severity sh:Violation ; # This violation notification is showed to the user   
+        sh:path brick:hasPoint ;   # Property for linking setpoints
+        sh:minCount 1 ;  # At least one link to "brick:Sensor" is required
+        sh:class brick:Sensor ;  # Ensure the link is to a class from "brick:Sensor"
+    ] .
+	
+# Use Case 13a - Validated	
+bsh-empa:PumpCommandLinkShape
+    a owl:Class, sh:NodeShape ;
+    sh:targetClass brick:Pump_Command ;  # Targets the class "brick:Pump_Command"
+    sh:property [
+        sh:message "Each command needs to be linked to the relevant equipment." ;
+        sh:severity sh:Violation ; # This violation notification is showed to the user   
+        sh:path brick:isPointOf ;   # Property for linking commands
+        sh:minCount 1 ;  # At least one link to "brick:Pump" is required
+        sh:class brick:Pump ;  # Ensure the link is to a class from "brick:Pump"
+    ] .
+
+# Use Case 13b - Validated	
+bsh-empa:BoilerCommandLinkShape
+    a owl:Class, sh:NodeShape ;
+    sh:targetClass brick:Boiler_Command ;  # Targets the class "brick:Boiler_Command"
+    sh:property [
+        sh:message "Each command needs to be linked to the relevant equipment." ;
+        sh:severity sh:Violation ; # This violation notification is showed to the user   
+        sh:path brick:isPointOf ;   # Property for linking commands
+        sh:minCount 1 ;  # At least one link to "brick:Boiler" is required
+        sh:class brick:Boiler ;  # Ensure the link is to a class from "brick:Boiler"
+    ] .
+	
+# Use Case 13c - Validated	
+bsh-empa:ValveCommandLinkShape
+    a owl:Class, sh:NodeShape ;
+    sh:targetClass brick:Valve_Command ;  # Targets the class "brick:Valve_Command"
+    sh:property [
+        sh:message "Each command needs to be linked to the relevant equipment." ;
+        sh:severity sh:Violation ; # This violation notification is showed to the user   
+        sh:path brick:isPointOf ;   # Property for linking commands
+        sh:minCount 1 ;  # At least one link to "brick:Valve" is required
+        sh:class brick:Valve ;  # Ensure the link is to a class from "brick:Valve"
+    ] .
+	
+# Use Case 14 - Validated	
+bsh-empa:SensorHasUnitShape
+    a owl:Class, sh:NodeShape ;
+    sh:targetClass brick:Sensor ;  # Targets the sub-class of "brick:Sensor"
+    sh:property [
+        sh:message "Each sensor has one unit linked." ;
+        sh:severity sh:Violation ; # This violation notification is showed to the user   
+        sh:path brick:hasUnit ;   # Property for linking to has unit
+        sh:minCount 1 ;  # Exactly one link to "brick:hasUnit" is required
+        sh:maxCount 1 ;  # Limit the maximum count to 1
+        sh:nodeKind sh:IRI ;  # Ensure that the linked value is an IRI
+    ] .
+
+# Use Case 15 - Validated	
+bsh-empa:SetpointHasUnitShape
+    a owl:Class, sh:NodeShape ;
+    sh:targetClass brick:Setpoint ;  # Targets the sub-class of "brick:Setpoint"
+    sh:property [
+        sh:message "Each sensor has one unit linked." ;
+        sh:severity sh:Violation ; # This violation notification is showed to the user   
+        sh:path brick:hasUnit ;  # Property for linking to has unit
+        sh:minCount 1 ;  # Exactly one link to "brick:hasUnit" is required
+        sh:maxCount 1 ;  # Limit the maximum count to 1
+        sh:nodeKind sh:IRI ;  # Ensure that the linked value is an IRI
+    ] .
+
+# Use Case 16 - Validated
+bsh-empa:YearBuiltShape 
+	a sh:NodeShape ;
+	sh:targetClass brick:Year_Built ;  # Target instances of "brick:Year_Built"
+	sh:property [ a sh:PropertyShape ;
+		sh:message "The value for year built (construction year) needs to be indicated as yyyy, no negative values allowed" ;
+		sh:severity sh:Warning ; # The shape is a NEST preference
+		sh:datatype xsd:nonNegativeInteger ; # Ensures no negative integer
+		sh:minCount 1 ;  # Limit the maximum count to 1 construction year
+		sh:maxCount 1 ;  # Limit the maximum count to 1 construction year
+		sh:minInclusive 1000 ; # The year needs to be inidcated as yyyy
+		sh:maxInclusive 9999 ; # The year needs to be inidcated as yyyy
+		sh:path brick:Value # Constrains the class property value
+	] .
+
+# Use Case 17 - Validated
+bsh-empa:BuildingAreaLinkShape
+    a owl:Class, sh:NodeShape ;
+   sh:targetClass brick:Building ;  # Target instances of "brick:Building"
+   sh:property [
+       sh:message "The building area needs to be indicated" ;
+       sh:severity sh:Violation ; # This violation notification is showed to the user   
+       sh:path brick:Area ;  # Property for linking the area
+       sh:minCount 1 ;  # Exactly one link to "brick:Area" is required
+       sh:maxCount 1 ;  # Limit the maximum count to 1
+       sh:class brick:Area ;  # Ensure the link is to "brick:Area"
+   ] .
+
+# Use Case 18 - Validated
+bsh-empa:BuildingPrimaryFunctionShape 
+    a owl:Class, sh:NodeShape ;
+    sh:targetClass brick:buildingPrimaryFunction ;  # Target instances of "brick:buildingPrimaryFunction"
+    rdfs:subClassOf bsh:ValueShape ;
+    sh:property [ a sh:PropertyShape ;
+        sh:message "The year built needs to be indicated" ;
+        sh:severity sh:Warning ; # This violation notification is showed to the user   
+        sh:in ( "Adult Education"^^xsd:string "Ambulatory Surgical Center"^^xsd:string "Aquarium"^^xsd:string "Automobile Dealership"^^xsd:string "Bank Branch"^^xsd:string "Bar/Nightclub"^^xsd:string "Barracks"^^xsd:string "Bowling Alley"^^xsd:string "Casino"^^xsd:string "College/University"^^xsd:string "Convenience Store with Gas Station"^^xsd:string "Convenience Store without Gas Station"^^xsd:string "Convention Center"^^xsd:string "Courthouse"^^xsd:string "Data Center"^^xsd:string "Distribution Center"^^xsd:string "Drinking Water Treatment & Distribution"^^xsd:string "Enclosed Mall"^^xsd:string "Energy/Power Station"^^xsd:string "Fast Food Restaurant"^^xsd:string "Financial Office"^^xsd:string "Fire Station"^^xsd:string "Fitness Center/Health Club/Gym"^^xsd:string "Food Sales"^^xsd:string "Food Service"^^xsd:string "Hospital (General Medical & Surgical)"^^xsd:string "Hotel"^^xsd:string "Ice/Curling Rink"^^xsd:string "Indoor Arena"^^xsd:string "K-12 School"^^xsd:string "Laboratory"^^xsd:string "Library"^^xsd:string "Lifestyle Center"^^xsd:string "Mailing Center/Post Office"^^xsd:string "Manufacturing/Industrial Plant"^^xsd:string "Medical Office"^^xsd:string "Mixed Use Property"^^xsd:string "Movie Theater"^^xsd:string "Multifamily Housing"^^xsd:string "Museum"^^xsd:string "Non-Refrigerated Warehouse"^^xsd:string "Office"^^xsd:string "Other - Education"^^xsd:string "Other - Entertainment/Public Assembly"^^xsd:string "Other - Lodging/Residential"^^xsd:string "Other - Mall"^^xsd:string "Other - Public Services"^^xsd:string "Other - Recreation"^^xsd:string "Other - Restaurant/Bar"^^xsd:string "Other - Services"^^xsd:string "Other - Stadium"^^xsd:string "Other - Technology/Science"^^xsd:string "Other - Utility"^^xsd:string "Other"^^xsd:string "Other/Specialty Hospital"^^xsd:string "Outpatient Rehabilitation/Physical Therapy"^^xsd:string "Parking"^^xsd:string "Performing Arts"^^xsd:string "Personal Services (Health/Beauty, Dry Cleaning, etc)"^^xsd:string "Police Station"^^xsd:string "Pre-school/Daycare"^^xsd:string "Prison/Incarceration"^^xsd:string "Race Track"^^xsd:string "Refrigerated Warehouse"^^xsd:string "Repair Services (Vehicle, Shoe, Locksmith, etc)"^^xsd:string "Residence Hall/Dormitory"^^xsd:string "Restaurant"^^xsd:string "Retail Store"^^xsd:string "Roller Rink"^^xsd:string "Self-Storage Facility"^^xsd:string "Senior Care Community"^^xsd:string "Single Family Home"^^xsd:string "Social/Meeting Hall"^^xsd:string "Stadium (Closed)"^^xsd:string "Stadium (Open)"^^xsd:string "Strip Mall"^^xsd:string "Supermarket/Grocery Store"^^xsd:string "Swimming Pool"^^xsd:string "Transportation Terminal/Station"^^xsd:string "Urgent Care/Clinic/Other Outpatient"^^xsd:string "Veterinary Office"^^xsd:string "Vocational School"^^xsd:string "Wastewater Treatment Plant"^^xsd:string "Wholesale Club/Supercenter"^^xsd:string "Worship Facility"^^xsd:string "Zoo"^^xsd:string ) ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:path brick:value 
+] .
+
+# Use Case 19a - Validated
+bsh-empa:SiTemperatureShape a owl:Class,
+        sh:NodeShape ;
+    sh:targetClass brick:Temperature;  # Target instances of "brick:Temperature"
+    sh:property [ a sh:PropertyShape ;
+        sh:message "Each temperature setpoint must have a relevant logical unti and a numeric value." ;
+        sh:severity sh:Violation ; # The shape is a global constraint            
+        sh:in ( unit:DEG_C) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path brick:hasUnit ],
+        [ a sh:PropertyShape ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:and bsh:NumericValue ;
+            sh:path brick:Value ] .
+
+# Use Case 19b - Validated
+bsh-empa:SiElectric_PowerShape a owl:Class,
+        sh:NodeShape ;
+    sh:targetClass brick:Electirc_Power_Sensor;  # Target instances of "brick:Electirc_Power_Sensor"
+    sh:property [ a sh:PropertyShape ;
+        sh:message "Each electirc power sensor needs to have relevant logical unit." ;
+        sh:severity sh:Violation ; # The shape is a global constraint            
+        sh:in ( unit:MilliW unit:TeraW unit:MegaW unit:KiloW  unit:MicroW unit:NanoW  unit:W  unit:GigaW ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path brick:hasUnit 
+        ],
+        [ a sh:PropertyShape ;
+            sh:message "Each electirc power sensor needs to have a numeric value." ;
+            sh:severity sh:Violation ; # The shape is a global constraint                       
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:and bsh:NumericValue ;
+            sh:path brick:Value 
+        ] .
+
+# Use Case 19c - Validated
+bsh-empa:SiAreaShape a owl:Class,
+    sh:NodeShape ;
+    sh:targetClass brick:Area ;  # Target instances of "brick:Area"
+    sh:property [ a sh:PropertyShape ;
+        sh:message "Each instance of the class must have a valid area value." ;
+        sh:severity sh:Violation ; # The shape is a global constraint
+        sh:path brick:hasUnit ; # Property for linking to has unit
+        sh:in ( unit:M2 ) ; # List with valid units
+        sh:maxCount 1 ; # Maximum one unit
+        sh:minCount 1 ; # Minimum one unit
+    ],
+    [ a sh:PropertyShape ;
+        sh:message "The area value must be a numeric value." ;
+        sh:severity sh:Violation ; # The shape is a global constraint
+        sh:path brick:Value ; # Constrains the class property value 
+        sh:and bsh:NumericValue ; # Refers to the brick numeric value shape
+        sh:maxCount 1 ; # Minimum one value
+        sh:minCount 1 ; # Maximun one value
+    ] .	
+
+# Use Case 20a - Validated	
+bsh-empa:TemperatureShape a owl:Class,
+        sh:NodeShape ;
+    sh:targetClass brick:Temperature;  # Target instances of "brick:Temperature"
+    sh:property [ a sh:PropertyShape ;
+        sh:message "Each temperature setpoint must have a relevant logical unti and a numeric value." ;
+        sh:severity sh:Violation ; # The shape is a global constraint            
+        sh:in ( unit:DEG_R unit:K unit:MilliDEG_C unit:PlanckTemperature unit:DEG_C unit:DEG_F ) ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:path brick:hasUnit ],
+    [ a sh:PropertyShape ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:and bsh:NumericValue ;
+        sh:path brick:Value ] .
+
+# Use Case 20b - Validated	
+bsh-empa:Electric_PowerShape a owl:Class,
+        sh:NodeShape ;
+    sh:targetClass brick:Electirc_Power_Sensor;  # Target instances of "brick:Electirc_Power_Sensor"
+    sh:property [ a sh:PropertyShape ;
+        sh:message "Each electirc power sensor needs to have relevant logical unit." ;
+        sh:severity sh:Violation ; # The shape is a global constraint            
+        sh:in ( unit:MilliW unit:PSI-M3-PER-SEC unit:TeraW unit:MegaV-A_Reactive unit:MegaW unit:MegaPA-M3-PER-SEC unit:PA-L-PER-SEC unit:ERG-PER-SEC unit:MegaPA-L-PER-SEC unit:MilliBAR-M3-PER-SEC unit:PSI-IN3-PER-SEC unit:HP_Electric unit:HP-PER-M unit:PicoW unit:HP_Metric unit:V-A unit:FT-LB_F-PER-HR unit:HP unit:KiloV-A_Reactive unit:KiloW unit:KiloV-A unit:PA-M3-PER-SEC unit:J-PER-HR unit:HP-PER-V unit:KiloCAL-PER-SEC unit:KiloCAL-PER-MIN unit:PSI-YD3-PER-SEC unit:MicroW unit:MegaV-A unit:NanoW unit:PlanckPower unit:W unit:BTU_IT-PER-SEC unit:J-PER-SEC unit:V-A_Reactive unit:GigaW unit:HP_Brake unit:MegaJ-PER-SEC unit:HP_Boiler unit:TON_FG unit:FT-LB_F-PER-SEC unit:BAR-M3-PER-SEC unit:FT-LB_F-PER-MIN unit:MilliBAR-L-PER-SEC unit:BAR-L-PER-SEC unit:BTU_IT-PER-HR ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path brick:hasUnit 
+        ],
+        [ a sh:PropertyShape ;
+            sh:message "Each electirc power sensor needs to have a numeric value." ;
+            sh:severity sh:Violation ; # The shape is a global constraint                       
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:and bsh:NumericValue ;
+            sh:path brick:Value 
+        ] .
+
+# Use Case 20c - Validated	
+bsh-empa:AreaShape a owl:Class,
+    sh:NodeShape ;
+    sh:targetClass brick:Area ;  # Target instances of "brick:Area"
+    sh:property [ a sh:PropertyShape ;
+        sh:message "Each instance of the class must have a valid area value." ;
+        sh:severity sh:Violation ; # The shape is a global constraint
+        sh:path brick:hasUnit ; # Property for linking to has unit
+        sh:in ( unit:FT2 unit:M2 ) ; # List with valid units
+        sh:maxCount 1 ; # Maximum one unit
+        sh:minCount 1 ; # Minimum one unit
+    ],
+    [ a sh:PropertyShape ;
+        sh:message "The area value must be a numeric value." ;
+        sh:severity sh:Violation ; # The shape is a global constraint
+        sh:path brick:Value ; # Constrains the class property value 
+        sh:and bsh:NumericValue ; # Refers to the brick numeric value shape
+        sh:maxCount 1 ; # Minimum one value
+        sh:minCount 1 ; # Maximun one value
+    ] .		
