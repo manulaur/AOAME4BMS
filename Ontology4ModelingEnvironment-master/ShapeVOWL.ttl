@@ -1,0 +1,94 @@
+# baseURI: http://example.org/ShapeVOWL
+# prefix: shvowl
+
+@prefix : <http://example.org/ShapeVOWL#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix shvowl: <http://example.org/ShapeVOWL#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/ShapeVOWL>
+  a owl:Ontology ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+shvowl:ANDConstraint
+  a owl:Class ;
+  rdfs:label "ANDConstraint" ;
+.
+shvowl:CardinalityConstraint
+  a owl:Class ;
+  rdfs:label "CardinalityConstraint" ;
+.
+shvowl:ClassConstraintIndication
+  a owl:Class ;
+  rdfs:label "ClassConstraintIndication" ;
+.
+shvowl:ClassObjectViolation
+  a owl:Class ;
+  rdfs:label "ClassObjectViolation" ;
+.
+shvowl:ClassObjectWarning
+  a owl:Class ;
+  rdfs:label "ClassObjectWarning" ;
+.
+shvowl:ComplyWith
+  a owl:Class ;
+  rdfs:label "complyWith" ;
+.
+shvowl:ConstraintNoteElementViolation
+  a owl:Class ;
+  rdfs:label "ConstraintNoteElementViolation" ;
+.
+shvowl:ConstraintNoteElementWarning
+  a owl:Class ;
+  rdfs:label "ConstraintNoteElementWarning" ;
+.
+shvowl:DatatypeConstraintIndication
+  a owl:Class ;
+  rdfs:label "DatatypeConstraintIndication" ;
+.
+shvowl:DatatypeObjectViolation
+  a owl:Class ;
+  rdfs:label "DatatypeObjectViolation" ;
+.
+shvowl:DatatypeObjectWarning
+  a owl:Class ;
+  rdfs:label "DatatypeObjectWarning" ;
+.
+shvowl:EdgeDataShape
+  a owl:Class ;
+  rdfs:label "EdgeDataShape" ;
+.
+shvowl:EdgePropertyShape
+  a owl:Class ;
+  rdfs:label "EdgePropertyShape" ;
+.
+shvowl:NOTConstraint
+  a owl:Class ;
+  rdfs:label "NOTConstraint" ;
+.
+shvowl:NodeShapeViolation
+  a owl:Class ;
+  rdfs:label "NodeShapeViolation" ;
+.
+shvowl:NodeShapeWarning
+  a owl:Class ;
+  rdfs:label "NodeShapeWarning" ;
+.
+shvowl:ORConstraint
+  a owl:Class ;
+  rdfs:label "ORConstraint" ;
+.
+shvowl:PropertyViolation
+  a owl:Class ;
+  rdfs:label "PropertyViolation" ;
+.
+shvowl:PropertyWarning
+  a owl:Class ;
+  rdfs:label "PropertyWarning" ;
+.
+shvowl:XONEConstraint
+  a owl:Class ;
+  rdfs:label "XONEConstraint" ;
+.

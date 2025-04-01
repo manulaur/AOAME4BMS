@@ -1,0 +1,104 @@
+# baseURI: http://fhnw.ch/modelingEnvironment/ModelOntology
+# imports: http://fhnw.ch/modelingEnvironment/PaletteOntology
+# prefix: mod
+
+@prefix lo: <http://fhnw.ch/modelingEnvironment/LanguageOntology#> .
+@prefix mod: <http://fhnw.ch/modelingEnvironment/ModelOntology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix po: <http://fhnw.ch/modelingEnvironment/PaletteOntology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://fhnw.ch/FloWare#SubSystem>
+  rdfs:subClassOf lo:ModelingElement ;
+.
+lo:elementHasBridgingConcept
+  mod:propertyIsShownInModel "true"^^xsd:boolean ;
+.
+lo:elementIsMappedWithDOConcept
+  mod:propertyIsShownInModel "true"^^xsd:boolean ;
+.
+lo:modelingContainerContainsModelingLanguageConstruct
+  rdf:type owl:ObjectProperty ;
+  mod:propertyIsShownInModel "true"^^xsd:boolean ;
+  rdfs:domain lo:ModelingContainer ;
+  rdfs:range lo:ModelingLanguageConstruct ;
+.
+lo:modelingRelationHasSourceModelingElement
+  mod:propertyIsShownInModel "true"^^xsd:boolean ;
+.
+lo:modelingRelationHasTargetModelingElement
+  mod:propertyIsShownInModel "true"^^xsd:boolean ;
+.
+<http://fhnw.ch/modelingEnvironment/ModelOntology>
+  owl:imports <http://fhnw.ch/modelingEnvironment/PaletteOntology> ;
+.
+mod:ConceptualElement
+  rdf:type owl:Class ;
+  rdfs:label "Model Elements" ;
+  rdfs:subClassOf owl:Thing ;
+.
+mod:Model
+  rdf:type owl:Class ;
+  rdfs:label "Models" ;
+  rdfs:subClassOf owl:Thing ;
+.
+mod:Shape
+  rdf:type owl:Class ;
+  rdfs:label "Shape" ;
+  rdfs:subClassOf owl:Thing ;
+.
+mod:modelHasShape
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain mod:Model ;
+  rdfs:range mod:Shape ;
+.
+mod:propertyIsShownInModel
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain rdf:Property ;
+  rdfs:range xsd:boolean ;
+.
+mod:shapeHasHeight
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain mod:Shape ;
+  rdfs:range xsd:integer ;
+.
+mod:shapeHasNote
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain mod:Shape ;
+  rdfs:range xsd:string ;
+.
+mod:shapeHasWidth
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain mod:Shape ;
+  rdfs:range xsd:integer ;
+.
+mod:shapeInstantiatesPaletteConstruct
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain mod:Shape ;
+  rdfs:range po:PaletteConstruct ;
+.
+mod:shapePositionsOnCoordinateX
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain mod:Shape ;
+  rdfs:range xsd:integer ;
+.
+mod:shapePositionsOnCoordinateY
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain mod:Shape ;
+  rdfs:range xsd:integer ;
+.
+mod:shapeRepresentsModel
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain mod:Shape ;
+  rdfs:range mod:Model ;
+.
+mod:shapeVisualisesConceptualElement
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain mod:Shape ;
+  rdfs:range mod:ConceptualElement ;
+.
+po:FloWare_AND
+  po:paletteConstructIsGroupedInPaletteCategory po:FloWare_Connectors ;
+.

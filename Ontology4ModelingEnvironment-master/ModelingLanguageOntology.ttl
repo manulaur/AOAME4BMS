@@ -1,0 +1,797 @@
+# baseURI: http://fhnw.ch/modelingEnvironment/LanguageOntology
+# imports: http://example.org/ShapeVOWL
+# imports: http://fhnw.ch/FloWare
+# imports: http://fhnw.ch/OrganizationalModel
+# imports: http://fhnw.ch/SAPScenesOntology
+# imports: http://fhnw.ch/modelingEnvironment/DSML4PTM
+# imports: http://fhnw.ch/modelingEnvironment/DomainOntology
+# imports: http://fhnw.ch/modelingEnvironment/dkmm
+# imports: http://ikm-group.ch/archimeo
+# imports: http://ikm-group.ch/archimeo/bpaas
+# prefix: lo
+
+@prefix DomainOntology: <http://fhnw.ch/modelingEnvironment/DomainOntology#> .
+@prefix FloWare: <http://fhnw.ch/FloWare#> .
+@prefix OrganizationalModel: <http://fhnw.ch/OrganizationalModel#> .
+@prefix ShapeVOWL: <http://example.org/ShapeVOWL#> .
+@prefix archi: <http://ikm-group.ch/archiMEO/archimate#> .
+@prefix archimeo: <http://ikm-group.ch/archiMEO#> .
+@prefix bmm: <http://ikm-group.ch/archiMEO/BMM#> .
+@prefix bpmn: <http://ikm-group.ch/archiMEO/BPMN#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix cmmn: <http://ikm-group.ch/archimeo/cmmn#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcmi-type-vocabulary: <http://dublincore.org/documents/2000/07/11/dcmi-type-vocabulary#> .
+@prefix dcterms: <http://purl.org/dcterms#> .
+@prefix dkmm: <http://fhnw.ch/modelingEnvironment/dkmm#> .
+@prefix dsml4ptm: <http://fhnw.ch/modelingEnvironment/DSML4PTM#> .
+@prefix elements: <http://purl.org/dc/elements/1.1#> .
+@prefix emo: <http://ikm-group.ch/archiMEO/emo#> .
+@prefix eo: <http://ikm-group.ch/archiMEO/eo#> .
+@prefix foaf: <http://xmlns.com/foaf/spec#> .
+@prefix lo: <http://fhnw.ch/modelingEnvironment/LanguageOntology#> .
+@prefix media-types: <http://www.iana.org/assignments/media-types#> .
+@prefix nco: <http://ikm-group.ch/archiMEO/nco#> .
+@prefix ontogov: <http://ch.fhnw.ontogov#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdfsplus: <http://topbraid.org/spin/rdfsplus#> .
+@prefix sapscenes: <http://fhnw.ch/SAPScenesOntology#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix top: <http://ikm-group.ch/archiMEO/top#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ShapeVOWL:ANDConstraint
+  rdfs:subClassOf lo:ModelingElement ;
+.
+ShapeVOWL:CardinalityConstraint
+  rdfs:subClassOf lo:ModelingElement ;
+.
+ShapeVOWL:ClassConstraintIndication
+  rdfs:subClassOf lo:ModelingElement ;
+.
+ShapeVOWL:ClassObjectViolation
+  rdfs:subClassOf lo:ModelingElement ;
+.
+ShapeVOWL:ClassObjectWarning
+  rdfs:subClassOf lo:ModelingElement ;
+.
+ShapeVOWL:ComplyWith
+  rdfs:subClassOf lo:ModelingElement ;
+.
+ShapeVOWL:ConstraintNoteElementViolation
+  rdfs:subClassOf lo:ModelingElement ;
+.
+ShapeVOWL:ConstraintNoteElementWarning
+  rdfs:subClassOf lo:ModelingElement ;
+.
+ShapeVOWL:DatatypeConstraintIndication
+  rdfs:subClassOf lo:ModelingElement ;
+.
+ShapeVOWL:DatatypeObjectViolation
+  rdfs:subClassOf lo:ModelingElement ;
+.
+ShapeVOWL:DatatypeObjectWarning
+  rdfs:subClassOf lo:ModelingElement ;
+.
+ShapeVOWL:EdgeDataShape
+  rdfs:subClassOf lo:ModelingRelation ;
+.
+ShapeVOWL:EdgePropertyShape
+  rdfs:subClassOf lo:ModelingRelation ;
+.
+ShapeVOWL:NOTConstraint
+  rdfs:subClassOf lo:ModelingElement ;
+.
+ShapeVOWL:NodeShapeViolation
+  rdfs:subClassOf lo:ModelingElement ;
+.
+ShapeVOWL:NodeShapeWarning
+  rdfs:subClassOf lo:ModelingElement ;
+.
+ShapeVOWL:ORConstraint
+  rdfs:subClassOf lo:ModelingElement ;
+.
+ShapeVOWL:PropertyViolation
+  rdfs:subClassOf lo:ModelingElement ;
+.
+ShapeVOWL:PropertyWarning
+  rdfs:subClassOf lo:ModelingElement ;
+.
+ShapeVOWL:XONEConstraint
+  rdfs:subClassOf lo:ModelingElement ;
+.
+FloWare:ANDConnection
+  rdfs:subClassOf lo:ModelingRelation ;
+.
+FloWare:Device
+  rdfs:subClassOf lo:ModelingElement ;
+.
+FloWare:Elements
+  rdfs:subClassOf lo:ModelingElement ;
+.
+FloWare:Feature
+  rdfs:subClassOf lo:ModelingElement ;
+.
+FloWare:ORConnection
+  rdfs:subClassOf lo:ModelingRelation ;
+.
+FloWare:Relations
+  rdfs:subClassOf lo:ModelingRelation ;
+.
+FloWare:SubSystem
+  rdfs:subClassOf lo:ModelingElement ;
+.
+FloWare:System
+  rdfs:subClassOf lo:ModelingElement ;
+.
+<http://fhnw.ch/OrganizationalModel/orgm#OrganizationalModelConnector>
+  rdfs:subClassOf lo:ModelingRelation ;
+.
+<http://fhnw.ch/OrganizationalModel/orgm#OrganizationalModelElement>
+  rdfs:subClassOf lo:ModelingElement ;
+.
+sapscenes:EmpathyMapping
+  a owl:Class ;
+  rdfs:label "Empathy Mapping" ;
+  rdfs:subClassOf <http://fhnw.ch/SAPScenes#SceneObject> ;
+.
+sapscenes:Feel
+  a owl:Class ;
+  rdfs:label "Feel" ;
+  rdfs:subClassOf sapscenes:EmpathyMapping ;
+.
+sapscenes:Feel_insecure
+  a sapscenes:Feel ;
+  rdfs:label "Feeling insecure about claiming" ;
+.
+sapscenes:Feel_insurance_children
+  a sapscenes:Feel ;
+  sapscenes:leadsTo sapscenes:Gain_simple_ui ;
+  rdfs:label "Wants to insure children" ;
+.
+sapscenes:Gain
+  a owl:Class ;
+  rdfs:label "Gain" ;
+  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
+.
+sapscenes:GainCreator
+  a owl:Class ;
+  rdfs:label "Gain Creator" ;
+  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
+.
+sapscenes:Gain_simple_ui
+  a sapscenes:Gain ;
+  rdfs:label "Simple user interface" ;
+.
+sapscenes:Hear
+  a owl:Class ;
+  rdfs:label "Hear" ;
+  rdfs:subClassOf sapscenes:EmpathyMapping ;
+.
+sapscenes:Pain
+  a owl:Class ;
+  rdfs:label "Pain" ;
+  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
+.
+sapscenes:PainReliever
+  a owl:Class ;
+  rdfs:label "Pain Reliever" ;
+  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
+.
+sapscenes:Pain_expensive
+  a sapscenes:Pain ;
+  rdfs:label "Dont know exactly the value" ;
+.
+sapscenes:Say
+  a owl:Class ;
+  rdfs:label "Say" ;
+  rdfs:subClassOf sapscenes:EmpathyMapping ;
+.
+sapscenes:Seeing
+  a owl:Class ;
+  rdfs:label "Seeing" ;
+  rdfs:subClassOf sapscenes:EmpathyMapping ;
+.
+sapscenes:Seeing_money_disapearing
+  a sapscenes:Seeing ;
+  sapscenes:leadsTo sapscenes:Pain_expensive ;
+  rdfs:label "Seeing money disapearing" ;
+.
+sapscenes:Seeing_progress_webapp
+  a sapscenes:Seeing ;
+  sapscenes:leadsTo sapscenes:Gain_simple_ui ;
+  rdfs:label "Seeing settings in the webapp" ;
+.
+sapscenes:Services
+  a owl:Class ;
+  rdfs:label "Services" ;
+  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
+.
+sapscenes:Think
+  a owl:Class ;
+  rdfs:label "Think" ;
+  rdfs:subClassOf sapscenes:EmpathyMapping ;
+.
+sapscenes:ToDo
+  a owl:Class ;
+  rdfs:label "ToDo" ;
+  rdfs:subClassOf sapscenes:ValuePropositionMapping ;
+.
+sapscenes:ValuePropositionMapping
+  a owl:Class ;
+  rdfs:label "Value Proposition Mapping" ;
+  rdfs:subClassOf <http://fhnw.ch/SAPScenes#SceneObject> ;
+.
+sapscenes:leadsTo
+  a owl:ObjectProperty ;
+  rdfs:domain sapscenes:EmpathyMapping ;
+  rdfs:label "leads to" ;
+  rdfs:range sapscenes:ValuePropositionMapping ;
+.
+dsml4ptm:ICFStandard
+  a owl:Class ;
+  rdfs:comment "International Classification of Functioning, Disability and Health https://bioportal.bioontology.org/ontologies/ICF?p=classes" ;
+  rdfs:label "ICF International Standard" ;
+  rdfs:label "Seeing" ;
+  rdfs:subClassOf dkmm:Data_Document ;
+.
+dsml4ptm:ICFStandardHasTimeStamp
+  a owl:DatatypeProperty ;
+  rdfs:domain dsml4ptm:ICFStandard ;
+  rdfs:label "ICF Standard has Time Stamp" ;
+  rdfs:range xsd:dateTime ;
+.
+dsml4ptm:ICFStandardIsMappedWithActivityAndParticipation
+  a owl:ObjectProperty ;
+  rdfs:domain dsml4ptm:ICFStandard ;
+  rdfs:label "ICF Standard Is Mapped With Activity And Participation" ;
+  rdfs:range <http://who.int/icf#d_ActivitiesAndParticipation> ;
+  rdfs:subPropertyOf lo:elementIsMappedWithDOConcept ;
+.
+dsml4ptm:ICFStandardIsMappedWithBodyFunction
+  a owl:ObjectProperty ;
+  rdfs:domain dsml4ptm:ICFStandard ;
+  rdfs:label "ICF Standard Is Mapped With Body Function" ;
+  rdfs:range <http://who.int/icf#b_BodyFunction> ;
+  rdfs:subPropertyOf lo:elementIsMappedWithDOConcept ;
+.
+dsml4ptm:ICFStandardIsMappedWithBodyStructures
+  a owl:ObjectProperty ;
+  rdfs:domain dsml4ptm:ICFStandard ;
+  rdfs:label "ICF Standard Is Mapped With Body Structures" ;
+  rdfs:range <http://who.int/icf#s_BodyStructures> ;
+  rdfs:subPropertyOf lo:elementIsMappedWithDOConcept ;
+.
+dsml4ptm:ICFStandardIsMappedWithEnvironmentalFactors
+  a owl:ObjectProperty ;
+  rdfs:domain dsml4ptm:ICFStandard ;
+  rdfs:label "ICF Standard Is Mapped With Environmental Factors" ;
+  rdfs:range <http://who.int/icf#e_EnvironmentalFactors> ;
+  rdfs:subPropertyOf lo:elementIsMappedWithDOConcept ;
+.
+dsml4ptm:ICFStandardIsMappedWithPerformance
+  a rdf:Property ;
+  a owl:ObjectProperty ;
+  rdfs:range <http://who.int/icf#Performance> ;
+  rdfs:subPropertyOf lo:elementIsMappedWithDOConcept ;
+.
+dsml4ptm:ICFStandardIsPartOfKoGuDataObject
+  a owl:ObjectProperty ;
+  rdfs:domain dsml4ptm:ICFStandard ;
+  rdfs:label "ICF Standard is part of KoGu Data Object" ;
+  rdfs:range dsml4ptm:ICFStandard ;
+  rdfs:subPropertyOf lo:elementHasBridgingConcept ;
+.
+dsml4ptm:PrepaerKoGu
+  a rdfs:Class ;
+  rdfs:subClassOf bpmn:UserTask ;
+.
+dsml4ptm:PrepareKoGu2
+  rdfs:subClassOf bpmn:UserTask ;
+.
+dsml4ptm:PrepareKoGu3
+  rdfs:subClassOf bpmn:UserTask ;
+.
+<http://fhnw.ch/modelingEnvironment/LanguageOntology>
+  a owl:Ontology ;
+  cc:license <http://creativecommons.org/licenses/by-sa/3.0/> ;
+  cc:license "This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License."@en ;
+  dc:contributor "Stefano Izzo" ;
+  dc:creator "Emanuele Laurenzi" ;
+  dc:description "The Language Ontology."@en ;
+  dc:issued "2018-04-25"^^xsd:date ;
+  dc:modified "2018-04-26"^^xsd:date ;
+  dc:publisher <http://de.dbpedia.org/resource/Fachhochschule_Nordwestschweiz> ;
+  dc:publisher <http://www.fhnw.ch/business> ;
+  dc:publisher "University of Applied Sciences Northwestern Switzerland FHNW"@en ;
+  dc:rights "Copyright 2018 FHNW" ;
+  dc:title "The Language Ontology"@en ;
+  rdfs:comment "Version 1.1: Initial import"@en ;
+  owl:imports <http://example.org/ShapeVOWL> ;
+  owl:imports <http://fhnw.ch/FloWare> ;
+  owl:imports <http://fhnw.ch/OrganizationalModel> ;
+  owl:imports <http://fhnw.ch/SAPScenesOntology> ;
+  owl:imports <http://fhnw.ch/modelingEnvironment/DSML4PTM> ;
+  owl:imports <http://fhnw.ch/modelingEnvironment/DomainOntology> ;
+  owl:imports <http://fhnw.ch/modelingEnvironment/dkmm> ;
+  owl:imports <http://ikm-group.ch/archimeo> ;
+  owl:imports <http://ikm-group.ch/archimeo/bpaas> ;
+  owl:versionInfo 1.1 ;
+.
+lo:AnnotationProperty_1
+  a owl:AnnotationProperty ;
+  rdfs:label "Prova" ;
+  rdfs:range <http://who.int/icf#b_BodyFunction> ;
+.
+lo:ArchiMate
+  a lo:ModelingLanguage ;
+  rdfs:label "ArchiMate" ;
+.
+lo:ArchiMateView
+  a lo:ModelingView ;
+  lo:isMainModelingView true ;
+  lo:viewIsPartOfModelingLanguage lo:ArchiMate ;
+  rdfs:label "ArchiMate Demo All 3 Layers" ;
+.
+lo:ArchiMate_ApplicationView
+  a lo:ModelingView ;
+  lo:isMainModelingView false ;
+  rdfs:label "Application View" ;
+.
+lo:ArchiMate_BusinessView
+  a lo:ModelingView ;
+  lo:isMainModelingView false ;
+  rdfs:label "Business View" ;
+.
+lo:ArchiMate_TechnologyView
+  a lo:ModelingView ;
+  lo:isMainModelingView false ;
+  rdfs:label "Technology View" ;
+.
+lo:BPMN4PP
+  a lo:ModelingLanguage ;
+  rdfs:label "BPMN4PP" ;
+.
+lo:BPMN4PPProcessModelingView
+  a lo:ModelingView ;
+  lo:isMainModelingView true ;
+  lo:viewIsPartOfModelingLanguage lo:BPMN4PP ;
+  rdfs:label "Process Modeling View" ;
+.
+lo:BPMNProcessModelingView
+  a lo:ModelingView ;
+  lo:isMainModelingView true ;
+  lo:viewIsPartOfModelingLanguage lo:BPMN_2_0 ;
+  rdfs:label "Process Modeling View" ;
+.
+lo:BPMN_2_0
+  a lo:ModelingLanguage ;
+  rdfs:label "BPMN 2.0" ;
+.
+lo:BPaaSProcessModelingView
+  a lo:ModelingView ;
+  lo:isMainModelingView true ;
+  lo:viewIsPartOfModelingLanguage lo:BPaaS_ModelingLanguage ;
+  rdfs:label "Process Modeling View" ;
+.
+lo:BPaaS_ModelingLanguage
+  a lo:ModelingLanguage ;
+  rdfs:label "BPaaS ModelingLanguage" ;
+.
+lo:BusinessProcessRequirementModelingView
+  a lo:ModelingView ;
+  lo:isMainModelingView false ;
+  lo:viewIsPartOfModelingLanguage lo:BPaaS_ModelingLanguage ;
+  rdfs:label "Business Process Requirement Modeling View" ;
+.
+lo:CanvasView
+  a lo:ModelingView ;
+  lo:isMainModelingView true ;
+  lo:viewIsPartOfModelingLanguage lo:SAPScene ;
+  rdfs:label "Canvas View" ;
+.
+lo:CombinationNotAllowed
+  a owl:Class ;
+  rdfs:label "Not Allowed Source-Target Combination" ;
+  rdfs:label "This concept has the purpose to represent all the source-target combinations between instance elements that an instance relation should be not allowed" ;
+  rdfs:subClassOf owl:Thing ;
+.
+lo:ControlElementModelingLanguage
+  a lo:ModelingLanguage ;
+  rdfs:label "Control Element Modeling Language" ;
+.
+lo:DSML4PTM
+  a lo:ModelingLanguage ;
+  rdfs:label "Domain Specific Modeling Language for Patient Transferal Management" ;
+.
+lo:DSML4PTMControlElementModelingView
+  a lo:ModelingView ;
+  lo:isMainModelingView false ;
+  lo:viewIsPartOfModelingLanguage lo:DSML4PTM ;
+  rdfs:label "Control Element Modeling View" ;
+.
+lo:DSML4PTMDecisionModelingView
+  a lo:ModelingView ;
+  lo:isMainModelingView false ;
+  lo:viewIsPartOfModelingLanguage lo:DSML4PTM ;
+  rdfs:label "Decision Modeling View" ;
+.
+lo:DSML4PTMDocumentKnowledgeModelingView
+  a lo:ModelingView ;
+  lo:isMainModelingView false ;
+  lo:viewIsPartOfModelingLanguage lo:DSML4PTM ;
+  rdfs:label "Document Knowledge Modeling View" ;
+.
+lo:DSML4PTMOrganizationalView
+  a lo:ModelingView ;
+  lo:isMainModelingView true ;
+  rdfs:label "Organizational View" ;
+.
+lo:DSML4PTMProcessModelingView
+  a lo:ModelingView ;
+  lo:isMainModelingView true ;
+  lo:viewIsPartOfModelingLanguage lo:DSML4PTM ;
+  rdfs:label "Process Modeling View" ;
+.
+lo:Data_Document_1
+  a dkmm:Data_Document ;
+  rdfs:label "7" ;
+.
+lo:DatatypeProperty_1
+  a owl:DatatypeProperty ;
+  rdfs:label "datatype" ;
+  rdfs:range xsd:boolean ;
+.
+lo:DocumentAndKnowledgeModelingLanguage
+  a lo:ModelingLanguage ;
+  rdfs:label "Document and Knowledge Modeling Language" ;
+.
+lo:DocumentKnolwedgeModelingView
+  a lo:ModelingView ;
+  lo:isMainModelingView false ;
+  lo:viewIsPartOfModelingLanguage lo:DocumentAndKnowledgeModelingLanguage ;
+  rdfs:label "Document Knowledge Modeling View" ;
+.
+lo:FloWare
+  a lo:ModelingLanguage ;
+  rdfs:label "FloWare" ;
+.
+lo:FloWarePIMView
+  a lo:ModelingView ;
+  lo:isMainModelingView false ;
+  lo:viewIsPartOfModelingLanguage lo:FloWare ;
+  rdfs:label "FloWare Platform Independent Model View" ;
+.
+lo:FloWarePSMView
+  a lo:ModelingView ;
+  lo:isMainModelingView true ;
+  lo:viewIsPartOfModelingLanguage lo:FloWare ;
+  rdfs:label "FloWare Platform Specific Model View" ;
+.
+lo:GPML
+  a lo:ModelingLanguage ;
+  rdfs:label "GPML" ;
+.
+lo:GPMLModellingView
+  a lo:ModelingView ;
+  lo:isMainModelingView true ;
+  lo:viewIsPartOfModelingLanguage lo:GPML ;
+  rdfs:label "GPML View" ;
+.
+lo:ICFStandardHasTimeStamp
+  rdfs:label "Time Stamp" ;
+.
+lo:ICFStandard_1
+  a dsml4ptm:ICFStandard ;
+  rdfs:label "Modeling Language Ontology is mapped with a Domain Ontology concept" ;
+.
+lo:ICFStandard_10
+  a dsml4ptm:ICFStandard ;
+.
+lo:ICFStandard_11
+  a dsml4ptm:ICFStandard ;
+.
+lo:ICFStandard_2
+  a dsml4ptm:ICFStandard ;
+  rdfs:label "b199. Mental functions, unspecified" ;
+.
+lo:ICFStandard_3
+  a dsml4ptm:ICFStandard ;
+  rdfs:label "3" ;
+.
+lo:ICFStandard_4
+  a dsml4ptm:ICFStandard ;
+  rdfs:label "4" ;
+.
+lo:ICFStandard_5
+  a dsml4ptm:ICFStandard ;
+  rdfs:label "5" ;
+.
+lo:ICFStandard_6
+  a dsml4ptm:ICFStandard ;
+  rdfs:label "6" ;
+.
+lo:ICFStandard_7
+  a dsml4ptm:ICFStandard ;
+  rdfs:label "7" ;
+.
+lo:ICFStandard_8
+  a dsml4ptm:ICFStandard ;
+  rdfs:label "7" ;
+.
+lo:ICFStandard_9
+  a dsml4ptm:ICFStandard ;
+  dsml4ptm:ICFStandardIsMappedWithBodyFunction <http://who.int/icf#b110-b139_Global_mental_functions> ;
+.
+lo:MRhasNotAllowedCombination
+  a owl:ObjectProperty ;
+  rdfs:domain lo:ModelingRelation ;
+  rdfs:label "Modeling relation has not allowed combination" ;
+  rdfs:range lo:CombinationNotAllowed ;
+.
+lo:ModelingContainer
+  a owl:Class ;
+  rdfs:comment "This class is used for those elements that act as containers, e.g. Pool and Lane in BPMN. In case in the canvas an element (e.g. a task) is in a container (e.g. lane), the realtion \"belongsTo\" is created between the instances of the two." ;
+  rdfs:label "Modeling Container" ;
+  rdfs:subClassOf lo:ModelingLanguageConstruct ;
+.
+lo:ModelingElement
+  a owl:Class ;
+  rdfs:label "Modeling Element" ;
+  rdfs:subClassOf lo:ModelingLanguageConstruct ;
+.
+lo:ModelingLanguage
+  a owl:Class ;
+  rdfs:label "Modeling Language" ;
+  rdfs:subClassOf owl:Thing ;
+.
+lo:ModelingLanguageConstruct
+  a owl:Class ;
+  rdfs:label "Modeling construct" ;
+  rdfs:subClassOf owl:Thing ;
+.
+lo:ModelingRelation
+  a owl:Class ;
+  rdfs:label "Modeling Relation" ;
+  rdfs:subClassOf lo:ModelingLanguageConstruct ;
+.
+lo:ModelingRelation_1
+  a lo:ModelingRelation ;
+  rdfs:label "prepareKoGu1" ;
+.
+lo:ModelingView
+  a owl:Class ;
+  rdfs:label "Modeling View" ;
+  rdfs:subClassOf owl:Thing ;
+.
+lo:OrganizationalModelingLanguage
+  a lo:ModelingLanguage ;
+  rdfs:label "Organizational Modeling Language" ;
+.
+lo:OrganizationalView
+  a lo:ModelingView ;
+  lo:isMainModelingView true ;
+  lo:viewIsPartOfModelingLanguage lo:DSML4PTM ;
+  lo:viewIsPartOfModelingLanguage lo:OrganizationalModelingLanguage ;
+  rdfs:label "Organizational View" ;
+.
+lo:SAPScene
+  a lo:ModelingLanguage ;
+  lo:hasModelingView lo:SAPSceneModelingView ;
+  rdfs:label "SAP Scene" ;
+.
+lo:SAPSceneModelingView
+  a lo:ModelingView ;
+  lo:isMainModelingView false ;
+  lo:viewIsPartOfModelingLanguage lo:SAPScene ;
+  rdfs:label "SAP Scenes Modeling View" ;
+.
+lo:ShapeVOWL
+  a lo:ModelingLanguage ;
+  rdfs:label "ShapeVOWL" ;
+.
+lo:ShapeVOWLView
+  a lo:ModelingView ;
+  lo:isMainModelingView true ;
+  lo:viewIsPartOfModelingLanguage lo:ShapeVOWL ;
+  rdfs:label "ShapeVOWL View" ;
+.
+lo:StartTest
+  a owl:DatatypeProperty ;
+  rdfs:domain bpmn:UserTask ;
+  rdfs:label "Start time _ Test" ;
+  rdfs:range xsd:dateTime ;
+.
+lo:UserTask_1
+  a bpmn:UserTask ;
+  rdfs:label "" ;
+.
+lo:WorkflowDescriptionModelingView
+  a lo:ModelingView ;
+  lo:isMainModelingView false ;
+  lo:viewIsPartOfModelingLanguage lo:BPaaS_ModelingLanguage ;
+  rdfs:label "Workflow Description Modeling View" ;
+.
+lo:WorkflowModelingView
+  a lo:ModelingView ;
+  lo:isMainModelingView false ;
+  lo:viewIsPartOfModelingLanguage lo:BPaaS_ModelingLanguage ;
+  rdfs:label "Workflow Modeling View" ;
+.
+lo:combinationHasSource
+  a owl:ObjectProperty ;
+  rdfs:domain lo:CombinationNotAllowed ;
+  rdfs:label "Combination has source" ;
+  rdfs:range lo:ModelingElement ;
+.
+lo:combinationHasTarget
+  a owl:ObjectProperty ;
+  rdfs:domain lo:CombinationNotAllowed ;
+  rdfs:label "Combination has target" ;
+  rdfs:range lo:ModelingElement ;
+.
+lo:combinationIsNotAllowedInMR
+  a owl:ObjectProperty ;
+  rdfs:domain lo:CombinationNotAllowed ;
+  rdfs:label "source-target combination is not allowed in modeling relation" ;
+  rdfs:range lo:ModelingRelation ;
+.
+lo:containerIsContainedInContainer
+  a owl:ObjectProperty ;
+  rdfs:domain lo:ModelingContainer ;
+  rdfs:label "Container is contained in container" ;
+.
+lo:date_of_birth
+  a owl:DatatypeProperty ;
+  rdfs:domain bpmn:DataInput ;
+  rdfs:label "data of birth" ;
+  rdfs:range xsd:date ;
+.
+lo:elementHasBridgingConcept
+  a owl:ObjectProperty ;
+  rdfs:domain lo:ModelingElement ;
+  rdfs:label "Modeling element has bridging concept" ;
+  rdfs:range lo:ModelingElement ;
+.
+lo:elementIsMappedWithDOConcept
+  a owl:ObjectProperty ;
+  rdfs:domain lo:ModelingElement ;
+  rdfs:label "Modeling element is mapped with a Domain Ontology concept" ;
+  rdfs:range DomainOntology:DomainOntologyConcept ;
+.
+lo:hasModelingView
+  a owl:ObjectProperty ;
+  rdfs:domain lo:ModelingLanguage ;
+  rdfs:label "Modeling language has modeling view" ;
+  rdfs:range lo:ModelingView ;
+.
+lo:hasNewObjectProperty
+  a owl:ObjectProperty ;
+  rdfs:range DomainOntology:Cost_Reimbursment ;
+  rdfs:range DomainOntology:Prepare ;
+.
+lo:hasNewProperty
+  a rdf:Property ;
+  a owl:DatatypeProperty ;
+  lo:hasValue xsd:string ;
+  lo:hasValue "Prova" ;
+  rdfs:range xsd:decimal ;
+.
+lo:hasPaletteCategory
+  a owl:ObjectProperty ;
+  rdfs:label "A modeling view has palette categories" ;
+.
+lo:hasValue
+  a owl:DatatypeProperty ;
+  rdfs:label "hasValue" ;
+.
+lo:isMainModelingView
+  a owl:DatatypeProperty ;
+  rdfs:domain lo:ModelingView ;
+  rdfs:label "isMainModelingView" ;
+  rdfs:range xsd:boolean ;
+.
+lo:metaModelHasModelingLanguageConstruct
+  a owl:ObjectProperty ;
+  rdfs:range lo:ModelingLanguageConstruct ;
+.
+lo:modelingElementBelongsToModelingContainer
+  a owl:ObjectProperty ;
+  rdfs:label "Modeling element belongs to modeling container" ;
+.
+lo:modelingLanguageHasModelingConstruct
+  a owl:ObjectProperty ;
+  rdfs:label "Modeling Language has Modeling Construct" ;
+.
+lo:modelingRelationHasSourceModelingElement
+  a owl:ObjectProperty ;
+  rdfs:domain lo:ModelingRelation ;
+  rdfs:label "Modeling Relation Has Source Modeling Element" ;
+  rdfs:range lo:ModelingElement ;
+.
+lo:modelingRelationHasTargetModelingElement
+  a owl:ObjectProperty ;
+  rdfs:domain lo:ModelingRelation ;
+  rdfs:label "Modeling Relation Has Target Modeling Element" ;
+  rdfs:range lo:ModelingElement ;
+.
+lo:notAllowedComb_Start-Start
+  a lo:CombinationNotAllowed ;
+  lo:combinationHasSource bpmn:StartEvent ;
+  lo:combinationHasTarget bpmn:StartEvent ;
+  lo:combinationIsNotAllowedInMR bpmn:SequenceFlow ;
+  rdfs:label "Start event cannot be directly connected with start event - Semantics defined in BPMN 2.0" ;
+.
+lo:viewIsPartOfModelingLanguage
+  a owl:ObjectProperty ;
+  rdfs:domain lo:ModelingView ;
+  rdfs:label "Modeling view is part of modeling language" ;
+  rdfs:range lo:ModelingLanguage ;
+.
+<http://fhnw.ch/modelingEnvironment/PaletteOntology>
+  a owl:Ontology ;
+  owl:imports <http://fhnw.ch/modelingEnvironment/LanguageOntology> ;
+.
+dkmm:Belongs_To
+  rdfs:subClassOf lo:ModelingRelation ;
+.
+dkmm:Data_Document
+  rdfs:subClassOf lo:ModelingElement ;
+.
+bpmn:Artifact
+  rdfs:subClassOf lo:ModelingElement ;
+.
+bpmn:ConnectingObject
+  rdfs:subClassOf lo:ModelingRelation ;
+.
+bpmn:FlowElementContainer
+  rdfs:subClassOf lo:ModelingRelation ;
+.
+bpmn:FlowObject
+  rdfs:subClassOf lo:ModelingElement ;
+.
+bpmn:Swimlane
+  rdfs:subClassOf lo:ModelingContainer ;
+.
+bpmn:UserTask
+  rdfs:range xsd:string ;
+  rdfs:range true ;
+.
+archi:Relationships
+  rdfs:subClassOf lo:ModelingRelation ;
+.
+emo:Aspect
+  rdfs:subClassOf lo:ModelingElement ;
+.
+emo:Perspective
+  rdfs:subClassOf lo:ModelingElement ;
+.
+eo:EnterpriseObject
+  rdfs:subClassOf lo:ModelingElement ;
+.
+nco:NCO
+  rdfs:subClassOf DomainOntology:DomainOntologyConcept ;
+.
+cmmn:DiscretionaryTask
+  a rdfs:Class ;
+.
+cmmn:Sentry
+  rdfs:subClassOf lo:ModelingElement ;
+.
+cmmn:Task
+  rdfs:subClassOf lo:ModelingElement ;
+.
+<http://ikm-group.ch/archimeo/iso42010#ADMetaModel>
+  rdfs:subClassOf DomainOntology:Standard ;
+.
+rdf:Property
+  a owl:Class ;
+.
+owl:Class
+  a owl:Class ;
+.
+owl:Thing
+  a owl:Class ;
+.

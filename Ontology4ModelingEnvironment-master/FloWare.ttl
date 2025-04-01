@@ -1,0 +1,84 @@
+# baseURI: http://fhnw.ch/FloWare
+# imports: http://datashapes.org/schema
+# imports: http://ikm-group.ch/archiMEO/BPMN
+# prefix: fw
+
+@prefix : <http://fhnw.ch/FloWare#> .
+@prefix fw: <http://fhnw.ch/FloWare#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://fhnw.ch/FloWare>
+  rdf:type owl:Ontology ;
+  owl:imports <http://datashapes.org/schema> ;
+  owl:imports <http://ikm-group.ch/archiMEO/BPMN> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+fw:ANDConnection
+  rdf:type owl:Class ;
+  rdfs:subClassOf fw:Relations ;
+.
+fw:Device
+  rdf:type owl:Class ;
+  rdfs:subClassOf fw:Elements ;
+.
+fw:Elements
+  rdf:type owl:Class ;
+.
+fw:Exclude
+  rdf:type owl:Class ;
+  rdfs:subClassOf fw:Relations ;
+.
+fw:Feature
+  rdf:type owl:Class ;
+  rdfs:subClassOf fw:Elements ;
+.
+fw:Includes
+  rdf:type owl:Class ;
+  rdfs:subClassOf fw:Relations ;
+.
+fw:Mandatory
+  rdf:type owl:Class ;
+  rdfs:subClassOf fw:Relations ;
+.
+fw:ORConnection
+  rdf:type owl:Class ;
+  rdfs:subClassOf fw:Relations ;
+.
+fw:Optional
+  rdf:type owl:Class ;
+  rdfs:subClassOf fw:Relations ;
+.
+fw:Relations
+  rdf:type owl:Class ;
+.
+fw:Requires
+  rdf:type owl:Class ;
+  rdfs:subClassOf fw:Relations ;
+.
+fw:SubSystem
+  rdf:type owl:Class ;
+  rdfs:comment "all elements of floware" ;
+  rdfs:label "Sub System" ;
+  rdfs:subClassOf fw:Elements ;
+.
+fw:System
+  rdf:type owl:Class ;
+  rdfs:comment "all elements of floware" ;
+  rdfs:label "System" ;
+  rdfs:subClassOf fw:Elements ;
+.
+fw:featureHasSystem
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "all elements of floware" ;
+  rdfs:label "featureHasSystem" ;
+  rdfs:range fw:System ;
+.
+fw:hasName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain fw:Elements ;
+  rdfs:range xsd:string ;
+.
